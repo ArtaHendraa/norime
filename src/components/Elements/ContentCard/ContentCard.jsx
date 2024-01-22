@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 const ContentCard = (props) => {
@@ -40,14 +41,14 @@ const ContentCard = (props) => {
               src={anime.images.webp.image_url}
               alt={anime.title}
             />
-          </div>
-          <div className="font-semibold mt-1">
-            <p className="whitespace-nowrap overflow-hidden text-ellipsis group-hover:text-[#ece48b] text-neutral-200 duration-300">
-              {anime.title}
-            </p>
-            <p className="text-neutral-500 text-sm">
-              {anime.aired.prop.from.year}
-            </p>
+            <div className="font-semibold mt-1">
+              <p className="whitespace-nowrap overflow-hidden text-ellipsis group-hover:text-[#ece48b] text-neutral-200 duration-300">
+                {anime.title}
+              </p>
+              <p className="text-neutral-500 text-sm">
+                {anime.aired.prop.from.year}
+              </p>
+            </div>
           </div>
         </Link>
       ))}

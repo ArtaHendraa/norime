@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Hading from "../Elements/Hading-title/hading";
 
 const ContentLayout = (props) => {
