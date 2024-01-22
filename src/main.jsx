@@ -7,19 +7,19 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //* Library
 
 //* Components
+import HomePage from "./pages/home.jsx";
+import PopularPage from "./Pages/popular.jsx";
 import Navbar from "./components/Fragments/Navbar.jsx";
-import Home from "./pages/home.jsx";
-import Popular from "./Pages/popular.jsx";
 //* Components
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <HomePage />,
   },
   {
     path: "/popular",
-    element: <Popular />,
+    element: <PopularPage />,
   },
 ]);
 

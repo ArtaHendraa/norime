@@ -6,7 +6,7 @@ import ContentCard from "../components/Elements/ContentCard/ContentCard";
 import Pagination from "../components/Elements/Pagination/Pagination";
 import ContentLayout from "../components/Layouts/ContentLayout";
 
-const Popular = () => {
+const PopularPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [topAnime, setTopAnime] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -101,4 +101,4 @@ const Popular = () => {
   );
 };
 
-export default Popular;
+export default PopularPage;
