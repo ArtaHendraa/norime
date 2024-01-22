@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .lane {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    column-gap: 0.9rem;
+  }
+
+  .lane::before,
+  .lane::after {
+    content: "";
+    height: 2px;
+    background-color: white;
+    display: block;
+    border-radius: 10px;
+    background-color: #ece48b;
+  }
+}
