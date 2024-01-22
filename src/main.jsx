@@ -1,16 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
-//* Library
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-//* Library
-
-//* Components
 import HomePage from "./pages/home.jsx";
 import PopularPage from "./pages/popular.jsx";
 import Navbar from "./components/Fragments/Navbar.jsx";
-//* Components
 
 const router = createBrowserRouter([
   {
