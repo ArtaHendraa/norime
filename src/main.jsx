@@ -8,7 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 //* Components
 import HomePage from "./pages/home.jsx";
-import PopularPage from "./Pages/popular.jsx";
+import PopularPage from "./pages/popular.jsx";
 import Navbar from "./components/Fragments/Navbar.jsx";
 //* Components
 

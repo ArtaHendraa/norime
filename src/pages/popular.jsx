@@ -17,6 +17,7 @@ const PopularPage = () => {
     const savedPage = parseInt(localStorage.getItem("currentPage")) || 1;
     setCurrentPage(savedPage);
     fetchData(savedPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchData = async (page) => {
