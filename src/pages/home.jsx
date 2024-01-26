@@ -1,14 +1,20 @@
+import DisplayAnime from "../components/Layouts/DisplayAnime";
+import { getAnime } from "../services/getAnime.service.js";
+
 const HomePage = () => {
+  const apiConfig = {
+    baseURL: "https://api.jikan.moe/v4/seasons/now?",
+    limit: 24,
+  };
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-y-3">
-      <p>this page not available for now</p>
-      <a
-        href="/popular"
-        className=" bg-[#ece48b] text-black px-3 py-1 capitalize font-semibold rounded-md"
-      >
-        go to popular
-      </a>
-    </div>
+    <>
+      <DisplayAnime
+        title="new release"
+        getAnime={getAnime}
+        apiConfig={apiConfig}
+      />
+    </>
   );
 };
 
