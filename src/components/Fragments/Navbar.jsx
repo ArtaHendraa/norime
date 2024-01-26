@@ -44,7 +44,7 @@ const Navbar = () => {
     setMenuOpen(false);
   };
   return (
-    <div className="relative">
+    <>
       <NavbarLayout>
         <CustomIcon
           classname="w-7 h-7 md:h-8 md:w-8 xl:hidden inline-block"
@@ -62,10 +62,12 @@ const Navbar = () => {
           icon="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
         />
       </NavbarLayout>
-      {isMenuOpen && (
-        <DropdownMenu linksData={linksData} closeMenu={closeMenu} />
-      )}
-    </div>
+      <div>
+        {isMenuOpen && (
+          <DropdownMenu linksData={linksData} closeMenu={closeMenu} />
+        )}
+      </div>
+    </>
   );
 };
 
