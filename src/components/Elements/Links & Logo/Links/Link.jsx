@@ -4,14 +4,15 @@
 import CustomIcon from "../../CustomIcon/Icon";
 
 const Link = (props) => {
-  const { linksData, classname } = props;
+  const { linksData, classname, onclick, linkClass } = props;
   return (
     <>
       {linksData.map((link) => (
         <a
           href={link.url}
           key={link.name}
-          className="flex items-center gap-1 group"
+          className={`flex items-center gap-1 group ${linkClass}`}
+          onClick={onclick}
         >
           <CustomIcon
             classname={`w-5 h-5 ${classname} transition-colors`}
