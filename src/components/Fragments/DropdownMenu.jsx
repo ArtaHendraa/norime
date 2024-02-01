@@ -23,7 +23,7 @@ const DropdownMenu = (props) => {
           linksData={linksData}
           onclick={closeMenu}
           linkClass="block px-6 py-3 font-semibold capitalize w-full hover:bg-[#ece48b] hover:text-black"
-          classname="text-xl w-7 h-7"
+          classname="text-base w-4 h-4 flex items-center"
         />
         <p className="text-xs text-neutral-400 text-center pt-3">
           &copy;{currentYear} Norime | ALL Rights Reserved
