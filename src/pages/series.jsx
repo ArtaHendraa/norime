@@ -1,4 +1,5 @@
 import DisplayAnime from "../components/Layouts/DisplayAnime";
+import MainLayout from "../components/Layouts/MainLayout.jsx";
 import { getAnime } from "../services/getAnime.service.js";
 
 const SeriesPage = () => {
@@ -8,9 +9,9 @@ const SeriesPage = () => {
   };
 
   return (
-    <>
+    <MainLayout>
       <DisplayAnime title="series" getAnime={getAnime} apiConfig={apiConfig} />
-    </>
+    </MainLayout>
   );
 };
 

@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import Loading from "../Elements/Loading/loading";
-import MainLayout from "../Layouts/MainLayout";
+
 import ContentCard from "../Elements/ContentCard/ContentCard";
 import Pagination from "../Elements/Pagination/Pagination";
 import ContentLayout from "./ContentLayout";
@@ -82,23 +82,21 @@ const DisplayAnime = (props) => {
   return (
     <>
       {loading && <Loading />}
-      <MainLayout>
-        {!loading && (
-          <ContentLayout title={title}>
-            <ContentCard topAnime={topAnime} />
-          </ContentLayout>
-        )}
-        {!loading && (
-          <Pagination
-            calculateDisplayedPages={calculateDisplayedPages}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            loadPrevPage={loadPrevPage}
-            loadNextPage={loadNextPage}
-            loadPage={loadPage}
-          />
-        )}
-      </MainLayout>
+      {!loading && (
+        <ContentLayout title={title}>
+          <ContentCard topAnime={topAnime} />
+        </ContentLayout>
+      )}
+      {!loading && (
+        <Pagination
+          calculateDisplayedPages={calculateDisplayedPages}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          loadPrevPage={loadPrevPage}
+          loadNextPage={loadNextPage}
+          loadPage={loadPage}
+        />
+      )}
     </>
   );
 };

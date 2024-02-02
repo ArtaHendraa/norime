@@ -1,4 +1,5 @@
 import DisplayAnime from "../components/Layouts/DisplayAnime";
+import MainLayout from "../components/Layouts/MainLayout.jsx";
 import { getAnime } from "../services/getAnime.service.js";
 
 const PopularPage = () => {
@@ -8,13 +9,13 @@ const PopularPage = () => {
   };
 
   return (
-    <>
+    <MainLayout>
       <DisplayAnime
         title="top anime"
         getAnime={getAnime}
         apiConfig={apiConfig}
       />
-    </>
+    </MainLayout>
   );
 };
 
