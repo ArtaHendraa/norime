@@ -4,6 +4,7 @@ import { getAnime } from "../services/getAnime.service.js";
 import MainLayout from "../components/Layouts/MainLayout.jsx";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { useEffect, useState } from "react";
 
 const HomePage = () => {
   const apiConfig = {
@@ -11,20 +12,38 @@ const HomePage = () => {
     limit: 24,
   };
 
-  const images = [
-    "https://t4.ftcdn.net/jpg/04/84/66/01/360_F_484660141_BxpYkEIYA3LsiF3qkqYWyXlNIoFmmXjc.jpg",
-    "https://t4.ftcdn.net/jpg/04/84/66/01/360_F_484660141_BxpYkEIYA3LsiF3qkqYWyXlNIoFmmXjc.jpg",
-  ];
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay(500)]);
 
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+  const [anime, setAnime] = useState([]);
+
+  useEffect(() => {
+    const savedPage = 1;
+    fetchData(savedPage);
+  }, []);
+
+  const fetchData = async (page) => {
+    try {
+      const { data } = await getAnime(page, apiConfig);
+      setAnime(data || []);
+    } catch (error) {
+      console.error("Error fetching anime data:", error);
+    }
+  };
 
   return (
     <MainLayout>
       <div className="overflow-hidden my-4" ref={emblaRef}>
-        <div className="flex rounded-lg">
-          {images.map((image) => (
-            <div className="embla__slide" key={image}>
-              <img src={image} className="w-full" alt="" />
+        <div className="flex">
+          {anime.map((anime, index) => (
+            <div
+              className="embla__slide cursor-grab active:cursor-grabbing flex gap-5 px-5"
+              key={index}
+            >
+              <img src={anime.images.webp.image_url} className="" alt="" />
+              <div>
+                <h1 className="text-xl">{anime.title}</h1>
+                <p>{anime.synopsis}</p>
+              </div>
             </div>
           ))}
         </div>

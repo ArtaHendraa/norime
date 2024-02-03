@@ -9,7 +9,7 @@ import ContentLayout from "./ContentLayout";
 
 const DisplayAnime = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [topAnime, setTopAnime] = useState([]);
+  const [anime, setAnime] = useState([]);
   const [loading, setLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
   const [cachedPages, setCachedPages] = useState({});
@@ -27,11 +27,11 @@ const DisplayAnime = (props) => {
     try {
       if (cachedPages[page]) {
         const cachedData = cachedPages[page];
-        setTopAnime(cachedData.data);
+        setAnime(cachedData.data);
         setTotalPages(cachedData.totalPages);
       } else {
         const { data, totalPages } = await getAnime(page, apiConfig);
-        setTopAnime(data || []);
+        setAnime(data || []);
         setTotalPages(totalPages || 0);
 
         setCachedPages((prev) => ({ ...prev, [page]: { data, totalPages } }));
@@ -84,7 +84,7 @@ const DisplayAnime = (props) => {
       {loading && <Loading />}
       {!loading && (
         <ContentLayout title={title}>
-          <ContentCard topAnime={topAnime} />
+          <ContentCard anime={anime} />
         </ContentLayout>
       )}
       {!loading && (

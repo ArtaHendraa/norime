@@ -2,11 +2,11 @@
 import { Link } from "react-router-dom";
 
 const ContentCard = (props) => {
-  const { topAnime } = props;
+  const { anime } = props;
 
   return (
     <>
-      {topAnime.map((anime) => (
+      {anime.map((anime) => (
         <Link to={anime.url} key={anime.title} className="group w-[99%]">
           <div className="w-full h-auto mx-auto relative overflow-hidden rounded-lg">
             <div className="absolute flex items-center justify-center bg-black w-full h-full group-hover:opacity-60 opacity-0 duration-300 hover:scale-150 z-10">
