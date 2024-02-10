@@ -13,7 +13,7 @@ const DisplayAnime = (props) => {
   const [loading, setLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
   const [cachedPages, setCachedPages] = useState({});
-  const { getAnime, apiConfig, title } = props;
+  const { getAnime, apiConfig } = props;
 
   useEffect(() => {
     const savedPage = parseInt(localStorage.getItem("currentPage")) || 1;
@@ -83,7 +83,7 @@ const DisplayAnime = (props) => {
     <>
       {loading && <Loading />}
       {!loading && (
-        <ContentLayout title={title}>
+        <ContentLayout>
           <ContentCard anime={anime} />
         </ContentLayout>
       )}
