@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 const ContentCard = (props) => {
-  const { anime } = props;
+  const { anime, children } = props;
 
   return (
     <>
@@ -30,11 +30,7 @@ const ContentCard = (props) => {
                 />
               </svg>
             </div>
-            <div className="absolute bg-[#ece48b] px-3 rounded-br-lg flex justify-center items-center">
-              <h1 className="text-[#1b1b1b] font-bold capitalize xl:text-lg text-xs">
-                {anime.rank ? `rank ${anime.rank}` : `${anime.type}`}
-              </h1>
-            </div>
+            {children}
             <img
               className="w-full h-auto bg-cover rounded-lg"
               loading="lazy"
