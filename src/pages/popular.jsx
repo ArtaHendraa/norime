@@ -88,13 +88,7 @@ const HomePage = () => {
       {loading && <Loading />}
       {!loading && (
         <ContentLayout>
-          <ContentCard anime={anime}>
-            <div className="absolute bg-[#ece48b] px-3 rounded-br-lg flex justify-center items-center">
-              <h1 className="text-[#1b1b1b] font-bold capitalize xl:text-lg text-xs">
-                {anime.rank ? `rank ${anime.rank}` : `${anime.type}`}
-              </h1>
-            </div>
-          </ContentCard>
+          <ContentCard anime={anime} />
         </ContentLayout>
       )}
       {!loading && (
