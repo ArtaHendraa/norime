@@ -103,8 +103,8 @@ const HomePage = () => {
             loadPage={loadPage}
           />
         )}
+        <Footer />
       </MainLayout>
-      <Footer />
     </>
   );
 };
