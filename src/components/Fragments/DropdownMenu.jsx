@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import Link from "../Elements/Links & Logo/Links/Link";
+import Copyright from "../Elements/Copyright/Copyright";
 
 const DropdownMenu = (props) => {
   const { linksData, closeMenu } = props;
@@ -9,8 +10,6 @@ const DropdownMenu = (props) => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  const currentYear = new Date().getFullYear();
 
   return (
     <div
@@ -25,9 +24,7 @@ const DropdownMenu = (props) => {
           linkClass="block px-6 py-3 font-semibold capitalize w-full hover:bg-[#ece48b] hover:text-black"
           classname="text-base w-4 h-4 flex items-center"
         />
-        <p className="text-xs text-neutral-400 text-center pt-3">
-          &copy;{currentYear} Norime | ALL Rights Reserved
-        </p>
+        <Copyright />
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import ContentCard from "../components/Elements/ContentCard/ContentCard.jsx";
 import Loading from "../components/Elements/Loading/loading.jsx";
 import Pagination from "../components/Elements/Pagination/Pagination.jsx";
 import { useEffect, useState } from "react";
+import Footer from "../components/Fragments/Footer.jsx";
 
 const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -84,24 +85,27 @@ const HomePage = () => {
   }, [loading]);
 
   return (
-    <MainLayout>
-      {loading && <Loading />}
-      {!loading && (
-        <ContentLayout>
-          <ContentCard anime={anime} banner="hidden" />
-        </ContentLayout>
-      )}
-      {!loading && (
-        <Pagination
-          calculateDisplayedPages={calculateDisplayedPages}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          loadPrevPage={loadPrevPage}
-          loadNextPage={loadNextPage}
-          loadPage={loadPage}
-        />
-      )}
-    </MainLayout>
+    <>
+      <MainLayout>
+        {loading && <Loading />}
+        {!loading && (
+          <ContentLayout>
+            <ContentCard anime={anime} banner="hidden" />
+          </ContentLayout>
+        )}
+        {!loading && (
+          <Pagination
+            calculateDisplayedPages={calculateDisplayedPages}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            loadPrevPage={loadPrevPage}
+            loadNextPage={loadNextPage}
+            loadPage={loadPage}
+          />
+        )}
+      </MainLayout>
+      <Footer />
+    </>
   );
 };
 
