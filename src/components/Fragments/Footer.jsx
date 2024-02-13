@@ -9,7 +9,7 @@ const Footer = () => {
             <img src="/logo.webp" alt="" />
           </div>
 
-          <div className="flex flex-col my-2">
+          <div className="flex flex-col md:flex-row my-2 md:gap-3">
             <div className="flex gap-3">
               <a href="">home</a>
               <a href="">series</a>
