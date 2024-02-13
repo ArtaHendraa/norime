@@ -6,6 +6,7 @@ import ContentCard from "../components/Elements/ContentCard/ContentCard.jsx";
 import Loading from "../components/Elements/Loading/loading.jsx";
 import Pagination from "../components/Elements/Pagination/Pagination.jsx";
 import { useEffect, useState } from "react";
+import Footer from "../components/Fragments/Footer.jsx";
 
 const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -101,6 +102,7 @@ const HomePage = () => {
           loadPage={loadPage}
         />
       )}
+      <Footer />
     </MainLayout>
   );
 };
