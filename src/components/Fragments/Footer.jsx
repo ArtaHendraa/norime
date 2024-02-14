@@ -5,19 +5,15 @@ const Footer = () => {
     <>
       <footer className="mb-5">
         <div className="flex justify-between items-center border-b border-white mt-14 mx-8 capitalize">
-          <div className="w-24">
+          <div className="w-20 md:w-24">
             <img src="/logo.webp" alt="" />
           </div>
 
-          <div className="flex flex-col md:flex-row my-2 md:gap-3">
-            <div className="flex gap-3">
-              <a href="">home</a>
-              <a href="">series</a>
-            </div>
-            <div className="flex gap-3">
-              <a href="">movie</a>
-              <a href="">popular</a>
-            </div>
+          <div className="flex items-center text-sm md:text-base gap-2 mb-2 md:flex-row md:gap-3">
+            <a href="">home</a>
+            <a href="">series</a>
+            <a href="">movie</a>
+            <a href="">popular</a>
           </div>
         </div>
 
