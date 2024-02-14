@@ -27,15 +27,18 @@ const DetailAnime = () => {
         <Loading />
       ) : (
         <>
+          <iframe
+            width="560"
+            height="315"
+            src={`${detail.trailer.embed_url}autoplay=0`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+
           <h2>Title: {detail.title}</h2>
           <p>Synopsis: {detail.synopsis}</p>
-          <a
-            href={detail.trailer.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Trailer
-          </a>
           <img src={detail.images.webp.image_url} alt="" />
         </>
       )}
