@@ -89,9 +89,11 @@ const HomePage = () => {
       <MainLayout>
         {loading && <Loading />}
         {!loading && (
-          <ContentLayout>
-            <ContentCard anime={anime} banner="hidden" />
-          </ContentLayout>
+          <>
+            <ContentLayout titleStyle="hidden">
+              <ContentCard anime={anime} banner="hidden" />
+            </ContentLayout>
+          </>
         )}
         {!loading && (
           <Pagination

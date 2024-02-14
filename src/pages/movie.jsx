@@ -88,7 +88,7 @@ const HomePage = () => {
     <MainLayout>
       {loading && <Loading />}
       {!loading && (
-        <ContentLayout>
+        <ContentLayout title="movie">
           <ContentCard anime={anime} banner="hidden" />
         </ContentLayout>
       )}
