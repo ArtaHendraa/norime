@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { getAnime } from "../services/getAnime.service.js";
+import { getAnime } from "../services/anime.service.js";
 import MainLayout from "../components/Layouts/MainLayout.jsx";
 import ContentLayout from "../components/Layouts/ContentLayout.jsx";
 import ContentCard from "../components/Elements/ContentCard/ContentCard.jsx";

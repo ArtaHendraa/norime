@@ -29,3 +29,32 @@ export const getAnime = async (page, apiConfig) => {
     throw error;
   }
 };
+
+export const getDetailAnime = (mal_id, callback) => {
+  axios
+    .get(`https://api.jikan.moe/v4/anime/${mal_id}`)
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+// export const getDetailAnime = async (mal_id) => {
+//   try {
+//     const response = await axios.get(
+//       `https://api.jikan.moe/v4/anime/${mal_id}`
+//     );
+//     const data = response.data;
+//     console.log("Received data:", data);
+
+//     if (!data || !data.title) {
+//       throw new Error("Invalid API response format");
+//     }
+
+//     return data; // Don't forget to return the data
+//   } catch (error) {
+//     throw error;
+//   }
+// };

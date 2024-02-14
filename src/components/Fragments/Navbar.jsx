@@ -49,8 +49,8 @@ const Navbar = () => {
           classname="w-7 h-7 md:h-8 md:w-8 xl:hidden inline-block"
           icon={`${
             isMenuOpen
-              ? "M6 18 18 6M6 6l12 12" //close menu
-              : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" //normal menu
+              ? "M6 18 18 6M6 6l12 12" //close menu icon
+              : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" //normal menu icon
           }`}
           onclick={handleMenuToggle}
         />

@@ -7,6 +7,7 @@ import PopularPage from "./pages/popular.jsx";
 import Navbar from "./components/Fragments/Navbar.jsx";
 import SeriesPage from "./pages/series.jsx";
 import MoviePage from "./pages/movie.jsx";
+import DetailAnime from "./pages/detailAnime.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,22 @@ const router = createBrowserRouter([
   {
     path: "/popular",
     element: <PopularPage />,
+  },
+  {
+    path: "/anime/:mal_id",
+    element: <DetailAnime />,
+  },
+  {
+    path: "series/anime/:mal_id",
+    element: <DetailAnime />,
+  },
+  {
+    path: "movie/anime/:mal_id",
+    element: <DetailAnime />,
+  },
+  {
+    path: "popular/anime/:mal_id",
+    element: <DetailAnime />,
   },
 ]);
 
