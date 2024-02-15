@@ -10,10 +10,10 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center text-sm md:text-base gap-2 mb-2 md:flex-row md:gap-3">
-            <a href="">home</a>
-            <a href="">series</a>
-            <a href="">movie</a>
-            <a href="">popular</a>
+            <a href="/">home</a>
+            <a href="/series">series</a>
+            <a href="/movie">movie</a>
+            <a href="/popular">popular</a>
           </div>
         </div>
 

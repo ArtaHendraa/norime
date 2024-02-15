@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
 
 const ContentCard = (props) => {
   const { anime, banner } = props;
@@ -7,8 +6,8 @@ const ContentCard = (props) => {
   return (
     <>
       {anime.map((anime) => (
-        <Link
-          to={`anime/${anime.mal_id}`}
+        <a
+          href={`anime/${anime.mal_id}`}
           key={anime.mal_id}
           className="group w-[99%]"
         >
@@ -56,7 +55,7 @@ const ContentCard = (props) => {
               {anime.aired.prop.from.year}
             </p>
           </div>
-        </Link>
+        </a>
       ))}
     </>
   );
