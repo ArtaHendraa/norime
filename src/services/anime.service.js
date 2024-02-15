@@ -40,21 +40,3 @@ export const getDetailAnime = (mal_id, callback) => {
       console.log(err);
     });
 };
-
-// export const getDetailAnime = async (mal_id) => {
-//   try {
-//     const response = await axios.get(
-//       `https://api.jikan.moe/v4/anime/${mal_id}`
-//     );
-//     const data = response.data;
-//     console.log("Received data:", data);
-
-//     if (!data || !data.title) {
-//       throw new Error("Invalid API response format");
-//     }
-
-//     return data; // Don't forget to return the data
-//   } catch (error) {
-//     throw error;
-//   }
-// };

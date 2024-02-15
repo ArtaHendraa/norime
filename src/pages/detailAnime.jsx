@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { getDetailAnime } from "../services/anime.service";
 import { useEffect, useState } from "react";
 import Loading from "../components/Elements/Loading/loading";
+import MainLayout from "../components/Layouts/MainLayout";
 
 const DetailAnime = () => {
   const { mal_id } = useParams();
@@ -21,26 +22,25 @@ const DetailAnime = () => {
 
   return (
     <div>
-      <h1>Anime Details for ID: {mal_id}</h1>
-
       {loading ? (
         <Loading />
       ) : (
         <>
-          <div className="relative overflow-hidden pt-[56.25%]">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src={`${detail.trailer.embed_url}autoplay=0`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-          </div>
-
-          <h2>Title: {detail.title}</h2>
-          <p>Synopsis: {detail.synopsis}</p>
-          <img src={detail.images.webp.image_url} alt="" />
+          <MainLayout classname="px-5 py-3">
+            <div className="relative overflow-hidden pt-[56.25%] rounded-md">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src={`${detail.trailer.embed_url}autoplay=0`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <h2>Title: {detail.title}</h2>
+            <p>Synopsis: {detail.synopsis}</p>
+            <img src={detail.images.webp.image_url} alt="" />
+          </MainLayout>
         </>
       )}
     </div>

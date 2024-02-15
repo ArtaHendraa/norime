@@ -21,9 +21,8 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    const savedPage = parseInt(localStorage.getItem("currentPage")) || 1;
-    setCurrentPage(savedPage);
-    fetchData(savedPage);
+    setCurrentPage(1);
+    fetchData(1);
   }, []);
 
   const fetchData = async (page) => {

@@ -9,7 +9,7 @@ const ContentCard = (props) => {
       {anime.map((anime) => (
         <Link
           to={`anime/${anime.mal_id}`}
-          key={anime.title}
+          key={anime.mal_id}
           className="group w-[99%]"
         >
           <div className="w-full h-auto mx-auto relative overflow-hidden rounded-lg">
