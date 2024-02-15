@@ -26,20 +26,24 @@ const DetailAnime = () => {
         <Loading />
       ) : (
         <>
-          <MainLayout classname="px-5 py-3">
-            <div className="relative overflow-hidden pt-[56.25%] rounded-md">
+          <MainLayout classname="px-2 py-3">
+            <div className="relative overflow-hidden pt-[56.25%] rounded-sm">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
-                src={`${detail.trailer.embed_url}autoplay=0`}
+                src={`${detail.trailer.embed_url}?autoplay=0&showinfo=0`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
             </div>
-            <h2>Title: {detail.title}</h2>
-            <p>Synopsis: {detail.synopsis}</p>
-            <img src={detail.images.webp.image_url} alt="" />
+
+            <div className="px-2">
+              <h1 className="text-2xl mt-3 mb-2 text-neutral-50 font-semibold">
+                {detail.title}
+              </h1>
+              <p className="text-neutral-200">{detail.synopsis}</p>
+            </div>
           </MainLayout>
         </>
       )}

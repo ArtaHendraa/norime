@@ -4,7 +4,7 @@ const ContentLayout = (props) => {
   const { children, title, titleStyle = "block" } = props;
   return (
     <>
-      <div className="px-4 uppercase font-Montserrat py-2 text-center flex items-center">
+      <div className="px-4 uppercase font-Quicksand font-semibold py-2 text-center flex items-center">
         <span
           className={`bg-white w-full h-[1px] ${titleStyle} rounded-md`}
         ></span>

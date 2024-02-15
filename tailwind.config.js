@@ -5,7 +5,6 @@ export default {
     extend: {},
     fontFamily: {
       Quicksand: "Quicksand",
-      Montserrat: "Montserrat",
     },
   },
   plugins: [],
