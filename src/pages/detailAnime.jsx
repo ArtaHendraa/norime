@@ -20,6 +20,11 @@ const DetailAnime = () => {
     });
   }, [mal_id]);
 
+  const [showFullText, setShowFullText] = useState(false);
+  const toggleText = () => {
+    setShowFullText(!showFullText);
+  };
+
   return (
     <div>
       {loading ? (
@@ -39,10 +44,37 @@ const DetailAnime = () => {
             </div>
 
             <div className="px-2">
-              <h1 className="text-2xl mt-3 mb-2 text-neutral-50 font-semibold">
-                {detail.title}
-              </h1>
-              <p className="text-neutral-200">{detail.synopsis}</p>
+              <div className="mt-3 mb-3">
+                <h1 className="text-2xl text-neutral-100 font-semibold">
+                  {detail.title}
+                </h1>
+                <h2 className="text-sm text-[#ece48b]">
+                  {detail.title_japanese}
+                </h2>
+              </div>
+
+              <div>
+                <h1 className="text-xl text-neutral-100">Synopsis</h1>
+                <p className="text-neutral-400">
+                  {showFullText
+                    ? detail.synopsis
+                    : detail.synopsis.slice(0, 200)}
+
+                  {!showFullText && detail.synopsis.length > 200 ? (
+                    <span>...</span>
+                  ) : (
+                    ""
+                  )}
+                </p>
+
+                {detail.synopsis.length > 200 && (
+                  <div className="mt-1 mb-3">
+                    <button onClick={toggleText} className="text-[#ece48b]">
+                      {showFullText ? "Read Less.." : "Read More.."}
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </MainLayout>
         </>
