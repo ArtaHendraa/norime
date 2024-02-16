@@ -42,14 +42,20 @@ const DetailAnime = () => {
         <>
           <MainLayout classname="px-2 py-3">
             <div className="relative overflow-hidden pt-[56.25%] rounded-sm">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src={`${detail.trailer.embed_url}?autoplay=0&showinfo=0`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
+              {detail.trailer && detail.trailer.embed_url ? (
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src={`${detail.trailer.embed_url}?autoplay=0&showinfo=0`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <div className="flex items-center justify-center w-full h-full bg-red-600 text-neutral-100 font-semibold absolute inset-0">
+                  <p>Trailer not found</p>
+                </div>
+              )}
             </div>
 
             <div className="px-2">
