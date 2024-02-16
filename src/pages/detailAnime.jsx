@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getDetailAnime } from "../services/anime.service";
+import { getDetailAnime, getEpisodeAnime } from "../services/anime.service";
 import { useEffect, useState } from "react";
 import Loading from "../components/Elements/Loading/loading";
 import MainLayout from "../components/Layouts/MainLayout";
@@ -7,6 +7,7 @@ import MainLayout from "../components/Layouts/MainLayout";
 const DetailAnime = () => {
   const { mal_id } = useParams();
   const [detail, setDetail] = useState({});
+  const [episode, setEpisode] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,6 +18,14 @@ const DetailAnime = () => {
         setDetail(data.data);
         setLoading(false); // Set loading to false when data is received
       }
+    });
+
+    getEpisodeAnime(mal_id, (data) => {
+      if (data && Array.isArray(data.data)) {
+        // Check if data is an array
+        setEpisode(data.data);
+      }
+      setLoading(false);
     });
   }, [mal_id]);
 
@@ -74,6 +83,21 @@ const DetailAnime = () => {
                     </button>
                   </div>
                 )}
+              </div>
+
+              <div className="flex flex-col gap-y-3 mt-5">
+                <h1 className="capitalize text-xl text-neutral-100">
+                  {episode.length} episodes
+                </h1>
+                {episode.map((episode, index) => (
+                  <div
+                    className="bg-[#0f0f0f] xl:bg-[#221f1f] px-3 py-4 rounded-lg"
+                    key={`episode ${index}`}
+                  >
+                    <h1 className="capitalize">episode {episode.mal_id}</h1>
+                    <h1>{episode.title}</h1>
+                  </div>
+                ))}
               </div>
             </div>
           </MainLayout>

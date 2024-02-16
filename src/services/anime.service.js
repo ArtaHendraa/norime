@@ -40,3 +40,14 @@ export const getDetailAnime = (mal_id, callback) => {
       console.log(err);
     });
 };
+
+export const getEpisodeAnime = (mal_id, callback) => {
+  axios
+    .get(`https://api.jikan.moe/v4/anime/${mal_id}/episodes`)
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
