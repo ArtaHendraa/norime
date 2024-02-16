@@ -85,20 +85,24 @@ const DetailAnime = () => {
                 )}
               </div>
 
-              <div className="flex flex-col gap-y-3 mt-5">
-                <h1 className="capitalize text-xl text-neutral-100">
-                  {episode.length} episodes
-                </h1>
-                {episode.map((episode, index) => (
-                  <div
-                    className="bg-[#0f0f0f] xl:bg-[#221f1f] px-3 py-4 rounded-lg"
-                    key={`episode ${index}`}
-                  >
-                    <h1 className="capitalize">episode {episode.mal_id}</h1>
-                    <h1>{episode.title}</h1>
-                  </div>
-                ))}
-              </div>
+              {loading ? (
+                <h1 className="capitalize text-xl text-neutral-100">load</h1>
+              ) : (
+                <div className="flex flex-col gap-y-3 mt-5">
+                  <h1 className="capitalize text-xl text-neutral-100">
+                    {episode.length} episodes
+                  </h1>
+                  {episode.map((episode, index) => (
+                    <div
+                      className="bg-[#0f0f0f] xl:bg-[#221f1f] px-3 py-4 rounded-lg"
+                      key={`episode ${index}`}
+                    >
+                      <h1 className="capitalize">episode {episode.mal_id}</h1>
+                      <h1>{episode.title}</h1>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </MainLayout>
         </>
