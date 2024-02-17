@@ -4,12 +4,12 @@ const Footer = () => {
   return (
     <>
       <footer className="mb-5">
-        <div className="flex justify-between items-center border-b border-white mt-14 mx-8 capitalize">
-          <div className="w-20 md:w-24">
+        <div className="flex justify-between items-center border-b border-neutral-500 mt-14 mx-8 capitalize">
+          <div className="w-20 md:w-24 mb-2">
             <img src="/logo.webp" alt="" />
           </div>
 
-          <div className="flex items-center text-sm md:text-base gap-2 mb-2 md:flex-row md:gap-3">
+          <div className="flex items-center text-sm md:text-base gap-2 mb-4 md:flex-row md:gap-3 text-neutral-200">
             <a href="/">home</a>
             <a href="/series">series</a>
             <a href="/movie">movie</a>
@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-7 mt-5">
+        <div className="flex items-center justify-center gap-7 mt-5 text-neutral-400">
           <svg
             stroke="currentColor"
             fill="currentColor"

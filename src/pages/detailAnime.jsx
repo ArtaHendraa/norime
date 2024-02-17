@@ -7,6 +7,7 @@ import MainLayout from "../components/Layouts/MainLayout";
 import Button from "../components/Elements/Button/Button";
 import Hading from "../components/Elements/Hading/Hading";
 import EpisodeButton from "../components/Elements/Button/EpisodeBtn";
+import Footer from "../components/Fragments/Footer";
 
 const DetailAnime = () => {
   const { mal_id } = useParams();
@@ -64,6 +65,7 @@ const DetailAnime = () => {
               <Episode episodes={episodes} />
             </div>
           </MainLayout>
+          <Footer />
         </>
       )}
     </div>
