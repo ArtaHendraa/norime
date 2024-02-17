@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const Button = (props) => {
   const {
     classname = "px-4 py-2 rounded font-bold",

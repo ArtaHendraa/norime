@@ -4,6 +4,9 @@ import { getDetailAnime, getEpisodeAnime } from "../services/anime.service";
 import { useEffect, useState } from "react";
 import Loading from "../components/Elements/Loading/loading";
 import MainLayout from "../components/Layouts/MainLayout";
+import Button from "../components/Elements/Button/Button";
+import Hading from "../components/Elements/Hading/Hading";
+import EpisodeButton from "../components/Elements/Button/EpisodeBtn";
 
 const DetailAnime = () => {
   const { mal_id } = useParams();
@@ -12,28 +15,19 @@ const DetailAnime = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true); // Set loading to true when starting the API call
-
+    setLoading(true);
     getDetailAnime(mal_id, (data) => {
       if (data && data.data) {
         setDetail(data.data);
       }
-      setLoading(false); // Set loading to false when data is received
+      setLoading(false);
     });
-
     getEpisodeAnime(mal_id, (data) => {
       if (data && Array.isArray(data.data)) {
-        // Check if data is an array
         setEpisode(data.data);
       }
-      // Do not set loading to false here to ensure it remains true until all data is received
     });
   }, [mal_id]);
-
-  const [showFullText, setShowFullText] = useState(false);
-  const toggleText = () => {
-    setShowFullText(!showFullText);
-  };
 
   return (
     <div>
@@ -53,47 +47,20 @@ const DetailAnime = () => {
                   allowFullScreen
                 ></iframe>
               ) : (
-                <div className="flex items-center justify-center w-full h-full bg-red-950 text-neutral-400 font-semibold absolute inset-0">
-                  <p>Trailer not found</p>
-                </div>
+                <Hading classname="flex items-center justify-center w-full h-full bg-red-950 text-neutral-400 font-semibold absolute inset-0 capitalize">
+                  trailer not found
+                </Hading>
               )}
             </div>
 
             <div className="px-2">
-              <div className="mt-3 mb-3">
-                <h1 className="text-2xl text-neutral-100 font-semibold">
-                  {detail.title}
-                </h1>
-                <h2 className="text-sm text-[#ece48b]">
-                  {detail.title_japanese}
-                </h2>
-              </div>
-
-              <div>
-                <h1 className="text-xl text-neutral-100">Synopsis</h1>
-                <p className="text-neutral-400">
-                  {detail.synopsis &&
-                    (showFullText
-                      ? detail.synopsis
-                      : detail.synopsis.slice(0, 200))}
-                  {!showFullText &&
-                  detail.synopsis &&
-                  detail.synopsis.length > 200 ? (
-                    <span>...</span>
-                  ) : (
-                    ""
-                  )}
-                </p>
-
-                {detail.synopsis.length > 200 && (
-                  <div className="mt-1 mb-3">
-                    <button onClick={toggleText} className="text-[#ece48b]">
-                      {showFullText ? "Read Less.." : "Read More.."}
-                    </button>
-                  </div>
-                )}
-              </div>
-
+              <Hading classname="text-2xl text-neutral-100 font-semibold mt-3">
+                {detail.title}
+              </Hading>
+              <Hading classname="text-sm text-[#ece48b] mb-3">
+                {detail.title_japanese}
+              </Hading>
+              <Synopsis detail={detail} />
               <Episode episodes={episodes} />
             </div>
           </MainLayout>
@@ -103,61 +70,71 @@ const DetailAnime = () => {
   );
 };
 
-export default DetailAnime;
+const Synopsis = (props) => {
+  const { detail } = props;
+  const [showFullText, setShowFullText] = useState(false);
+  const toggleText = () => {
+    setShowFullText(!showFullText);
+  };
+  return (
+    <>
+      <Hading>synopsis</Hading>
+      <p className="text-neutral-400">
+        {detail.synopsis &&
+          (showFullText ? detail.synopsis : detail.synopsis.slice(0, 200))}
+        {!showFullText && detail.synopsis && detail.synopsis.length > 200 ? (
+          <span>...</span>
+        ) : (
+          ""
+        )}
+      </p>
+      {detail.synopsis.length > 200 && (
+        <Button classname="text-[#ece48b] my-1" onClick={toggleText}>
+          {showFullText ? "Read Less" : "Read More"}
+        </Button>
+      )}
+    </>
+  );
+};
 
 const Episode = (props) => {
   const { episodes } = props;
   const [episodesToShow, setEpisodesToShow] = useState(5);
-
   const loadMoreEpisodes = () => {
     setEpisodesToShow((prev) => prev + 5);
   };
-
   const formatDate = (airedDate) => {
     const parsedDate = new Date(airedDate);
     const options = { year: "numeric", month: "2-digit", day: "2-digit" };
     return parsedDate.toLocaleDateString("en-GB", options);
   };
   return (
-    <div className="flex flex-col gap-y-3 mt-5">
-      <h1 className="capitalize text-xl text-neutral-100">
+    <MainLayout classname="flex flex-col gap-y-3 mt-5">
+      <Hading classname="capitalize text-xl text-neutral-100">
         {episodes.length} episodes
-      </h1>
+      </Hading>
       {episodes.length > 0 && (
         <>
           {episodes.slice(0, episodesToShow).map((episode, index) => (
-            <button
-              className="bg-[#141518] px-4 py-4 rounded-lg text-start"
+            <EpisodeButton
               key={`episode ${index}`}
-            >
-              <div className="flex items-center justify-between gap-10">
-                <div className="overflow-hidden">
-                  <h1 className="capitalize text-lg text-neutral-100">
-                    episode {episode.mal_id}
-                  </h1>
-                  <h2 className="text-neutral-300 overflow-hidden whitespace-nowrap text-ellipsis">
-                    {episode.title}
-                  </h2>
-                </div>
-
-                <h2 className="text-neutral-400">
-                  {formatDate(episode.aired)}
-                </h2>
-              </div>
-            </button>
+              episode={episode.mal_id}
+              title={episode.title}
+              date={formatDate(episode.aired)}
+            />
           ))}
           {episodes.length > episodesToShow && (
-            <div className="bg-[#1c1d22] py-2 text-center rounded-lg">
-              <button
-                onClick={loadMoreEpisodes}
-                className="text-[#ece48b] font-semibold"
-              >
-                Load More
-              </button>
-            </div>
+            <Button
+              classname="text-[#ece48b] font-semibold capitalize bg-[#1c1d22] py-2 text-center rounded-lg"
+              onClick={loadMoreEpisodes}
+            >
+              load more
+            </Button>
           )}
         </>
       )}
-    </div>
+    </MainLayout>
   );
 };
+
+export default DetailAnime;
