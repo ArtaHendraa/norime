@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
 import { getDetailAnime, getEpisodeAnime } from "../services/anime.service";
 import { useEffect, useState } from "react";
@@ -7,7 +8,7 @@ import MainLayout from "../components/Layouts/MainLayout";
 const DetailAnime = () => {
   const { mal_id } = useParams();
   const [detail, setDetail] = useState({});
-  const [episode, setEpisode] = useState([]);
+  const [episodes, setEpisode] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ const DetailAnime = () => {
                   allowFullScreen
                 ></iframe>
               ) : (
-                <div className="flex items-center justify-center w-full h-full bg-red-600 text-neutral-100 font-semibold absolute inset-0">
+                <div className="flex items-center justify-center w-full h-full bg-red-950 text-neutral-400 font-semibold absolute inset-0">
                   <p>Trailer not found</p>
                 </div>
               )}
@@ -93,24 +94,7 @@ const DetailAnime = () => {
                 )}
               </div>
 
-              {loading ? (
-                <h1 className="capitalize text-xl text-neutral-100">load</h1>
-              ) : (
-                <div className="flex flex-col gap-y-3 mt-5">
-                  <h1 className="capitalize text-xl text-neutral-100">
-                    {episode.length} episodes
-                  </h1>
-                  {episode.map((episode, index) => (
-                    <div
-                      className="bg-[#0f0f0f] xl:bg-[#221f1f] px-3 py-4 rounded-lg"
-                      key={`episode ${index}`}
-                    >
-                      <h1 className="capitalize">episode {episode.mal_id}</h1>
-                      <h1>{episode.title}</h1>
-                    </div>
-                  ))}
-                </div>
-              )}
+              <Episode episodes={episodes} />
             </div>
           </MainLayout>
         </>
@@ -120,3 +104,60 @@ const DetailAnime = () => {
 };
 
 export default DetailAnime;
+
+const Episode = (props) => {
+  const { episodes } = props;
+  const [episodesToShow, setEpisodesToShow] = useState(5);
+
+  const loadMoreEpisodes = () => {
+    setEpisodesToShow((prev) => prev + 5);
+  };
+
+  const formatDate = (airedDate) => {
+    const parsedDate = new Date(airedDate);
+    const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+    return parsedDate.toLocaleDateString("en-GB", options);
+  };
+  return (
+    <div className="flex flex-col gap-y-3 mt-5">
+      <h1 className="capitalize text-xl text-neutral-100">
+        {episodes.length} episodes
+      </h1>
+      {episodes.length > 0 && (
+        <>
+          {episodes.slice(0, episodesToShow).map((episode, index) => (
+            <button
+              className="bg-[#141518] px-4 py-4 rounded-lg text-start"
+              key={`episode ${index}`}
+            >
+              <div className="flex items-center justify-between gap-10">
+                <div className="overflow-hidden">
+                  <h1 className="capitalize text-lg text-neutral-100">
+                    episode {episode.mal_id}
+                  </h1>
+                  <h2 className="text-neutral-300 overflow-hidden whitespace-nowrap text-ellipsis">
+                    {episode.title}
+                  </h2>
+                </div>
+
+                <h2 className="text-neutral-400">
+                  {formatDate(episode.aired)}
+                </h2>
+              </div>
+            </button>
+          ))}
+          {episodes.length > episodesToShow && (
+            <div className="bg-[#1c1d22] py-2 text-center rounded-lg">
+              <button
+                onClick={loadMoreEpisodes}
+                className="text-[#ece48b] font-semibold"
+              >
+                Load More
+              </button>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+};
