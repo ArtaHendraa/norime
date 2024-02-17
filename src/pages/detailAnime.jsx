@@ -14,10 +14,10 @@ const DetailAnime = () => {
     setLoading(true); // Set loading to true when starting the API call
 
     getDetailAnime(mal_id, (data) => {
-      if (data) {
+      if (data && data.data) {
         setDetail(data.data);
-        setLoading(false); // Set loading to false when data is received
       }
+      setLoading(false); // Set loading to false when data is received
     });
 
     getEpisodeAnime(mal_id, (data) => {
@@ -25,7 +25,7 @@ const DetailAnime = () => {
         // Check if data is an array
         setEpisode(data.data);
       }
-      setLoading(false);
+      // Do not set loading to false here to ensure it remains true until all data is received
     });
   }, [mal_id]);
 
@@ -71,11 +71,13 @@ const DetailAnime = () => {
               <div>
                 <h1 className="text-xl text-neutral-100">Synopsis</h1>
                 <p className="text-neutral-400">
-                  {showFullText
-                    ? detail.synopsis
-                    : detail.synopsis.slice(0, 200)}
-
-                  {!showFullText && detail.synopsis.length > 200 ? (
+                  {detail.synopsis &&
+                    (showFullText
+                      ? detail.synopsis
+                      : detail.synopsis.slice(0, 200))}
+                  {!showFullText &&
+                  detail.synopsis &&
+                  detail.synopsis.length > 200 ? (
                     <span>...</span>
                   ) : (
                     ""
