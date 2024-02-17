@@ -35,7 +35,7 @@ const DetailAnime = () => {
         <Loading />
       ) : (
         <>
-          <MainLayout classname="px-2 py-3">
+          <MainLayout classname="px-2 py-3 xl:w-4/5 mx-auto xl:bg-[#0f0f0f] xl:border-x xl:border-[rgba(255,255,255,.08)]">
             <div className="relative overflow-hidden pt-[56.25%] rounded-sm">
               {detail.trailer && detail.trailer.embed_url ? (
                 <iframe
