@@ -7,6 +7,8 @@ import Loading from "../components/Elements/Loading/loading.jsx";
 import Pagination from "../components/Elements/Pagination/Pagination.jsx";
 import { useEffect, useState } from "react";
 import Footer from "../components/Fragments/Footer.jsx";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -87,6 +89,20 @@ const HomePage = () => {
     <>
       <MainLayout>
         {loading && <Loading />}
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={1}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          {anime.map((slider, index) => (
+            <SwiperSlide key={index + 1}>
+              <div>
+                <img src={slider.images.webp.large_image_url} alt="" />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
         {!loading && (
           <>
             <ContentLayout titleStyle="hidden">
