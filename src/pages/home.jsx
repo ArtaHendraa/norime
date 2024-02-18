@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
 import { getAnime } from "../services/anime.service.js";
 import MainLayout from "../components/Layouts/MainLayout.jsx";
 import ContentLayout from "../components/Layouts/ContentLayout.jsx";
 import ContentCard from "../components/Elements/ContentCard/ContentCard.jsx";
 import Loading from "../components/Elements/Loading/loading.jsx";
 import PaginationAnime from "../components/Elements/Pagination/Pagination.jsx";
-import { useEffect, useState } from "react";
 import Footer from "../components/Fragments/Footer.jsx";
 import Carousel from "../components/Fragments/Carousel.jsx";
 // Swiper js
