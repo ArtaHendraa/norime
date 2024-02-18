@@ -4,11 +4,15 @@ import MainLayout from "../components/Layouts/MainLayout.jsx";
 import ContentLayout from "../components/Layouts/ContentLayout.jsx";
 import ContentCard from "../components/Elements/ContentCard/ContentCard.jsx";
 import Loading from "../components/Elements/Loading/loading.jsx";
-import Pagination from "../components/Elements/Pagination/Pagination.jsx";
+import PaginationAnime from "../components/Elements/Pagination/Pagination.jsx";
 import { useEffect, useState } from "react";
 import Footer from "../components/Fragments/Footer.jsx";
+import Carousel from "../components/Fragments/Carousel.jsx";
+// Swiper js
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
 
 const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -89,20 +93,31 @@ const HomePage = () => {
     <>
       <MainLayout>
         {loading && <Loading />}
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={1}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-        >
-          {anime.map((slider, index) => (
-            <SwiperSlide key={index + 1}>
-              <div>
-                <img src={slider.images.webp.large_image_url} alt="" />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+
+        {!loading && (
+          <>
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Autoplay, Pagination]}
+              className="mySwiper"
+            >
+              {anime.map((slider, index) => (
+                <SwiperSlide key={index + 1}>
+                  <Carousel image={slider.images.webp.large_image_url} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </>
+        )}
+
         {!loading && (
           <>
             <ContentLayout titleStyle="hidden">
@@ -110,8 +125,9 @@ const HomePage = () => {
             </ContentLayout>
           </>
         )}
+
         {!loading && (
-          <Pagination
+          <PaginationAnime
             calculateDisplayedPages={calculateDisplayedPages}
             currentPage={currentPage}
             totalPages={totalPages}
