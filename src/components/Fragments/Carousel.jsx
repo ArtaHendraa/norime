@@ -24,7 +24,7 @@ const Carousel = () => {
   return (
     <>
       {loading ? (
-        "Loading..."
+        " "
       ) : (
         <Swiper
           spaceBetween={10}
@@ -42,7 +42,7 @@ const Carousel = () => {
         >
           {carousel.map((carouselItem, index) => (
             <SwiperSlide key={index + 1}>
-              <div className="relative">
+              <div>
                 <img
                   src={carouselItem.trailer.images.maximum_image_url}
                   alt={carouselItem.title}
