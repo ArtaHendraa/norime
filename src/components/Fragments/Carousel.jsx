@@ -12,14 +12,12 @@ const Carousel = () => {
 
   useEffect(() => {
     setLoading(true);
-    const animeIds = [52991, 32281, 38329]; // Replace with the desired array of IDs
+    const animeIds = [52991, 32281, 38329, 33352, 38826, 49458]; // Replace with the desired array of IDs
     getCarouselAnime(animeIds, (data) => {
       setCarousel(data);
       setLoading(false);
     });
   }, []);
-
-  console.log(`data`, carousel);
 
   return (
     <>
@@ -32,7 +30,7 @@ const Carousel = () => {
           slidesPerView={1}
           loop={false}
           autoplay={{
-            delay: 7000,
+            delay: 5000,
             disableOnInteraction: false,
           }}
           pagination={{
