@@ -51,3 +51,14 @@ export const getEpisodeAnime = (mal_id, callback) => {
       console.log(err);
     });
 };
+
+export const getCarouselAnime = (id, callback) => {
+  axios
+    .get(`https://api.jikan.moe/v4/anime/${id}`)
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
