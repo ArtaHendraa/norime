@@ -18,15 +18,15 @@ const DetailAnime = () => {
   useEffect(() => {
     setLoading(true);
     getDetailAnime(mal_id, (data) => {
-      if (data && data.data) {
-        setDetail(data.data);
-      }
+      setDetail(data);
       setLoading(false);
     });
+  }, [mal_id]);
+
+  useEffect(() => {
+    setLoading(true);
     getEpisodeAnime(mal_id, (data) => {
-      if (data && Array.isArray(data.data)) {
-        setEpisode(data.data);
-      }
+      setEpisode(data);
     });
   }, [mal_id]);
 
