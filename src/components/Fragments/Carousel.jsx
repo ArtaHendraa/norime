@@ -22,13 +22,15 @@ const Carousel = () => {
   return (
     <>
       {loading ? (
-        " "
+        <div className="w-full flex items-center justify-center">
+          <h1>Load image...</h1>
+        </div>
       ) : (
         <Swiper
           spaceBetween={10}
           centeredSlides={true}
           slidesPerView={1}
-          loop={true}
+          loop={false}
           autoplay={{
             delay: 5000,
             disableOnInteraction: true,
