@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { getCarouselAnime } from "../../services/anime.service";
+import CustomIcon from "../Elements/CustomIcon/Icon";
 // import CustomIcon from "../Elements/CustomIcon/Icon";
 
 const Carousel = () => {
@@ -42,9 +43,9 @@ const Carousel = () => {
             delay: 5000,
             disableOnInteraction: true,
           }}
-          pagination={{
-            clickable: true,
-          }}
+          // pagination={{
+          //   clickable: true,
+          // }}
           modules={[Autoplay, Pagination]}
         >
           {carousel.map((carouselItem, index) => (
@@ -64,11 +65,11 @@ const Carousel = () => {
                       <h1 className="w-3/4 xl:w-full text-xl xl:text-3xl font-bold whitespace-nowrap overflow-hidden text-ellipsis">
                         {carouselItem.title}
                       </h1>
-                      <p className="text-sm font-light">
+                      <p className="text-sm font-light hidden md:inline-block">
                         {formatDate(carouselItem.aired.from)}
                       </p>
 
-                      {/* <div className="mt-3">
+                      <div className="mt-3">
                         <a
                           href={`anime/${carouselItem.mal_id}`}
                           className="capitalize text-sm bg-[#ece48b] text-black font-semibold px-4 py-1 rounded-xl"
@@ -79,7 +80,7 @@ const Carousel = () => {
                             classname="h-4 w-4 inline-block"
                           />
                         </a>
-                      </div> */}
+                      </div>
                     </div>
                   </div>
 
