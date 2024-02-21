@@ -49,7 +49,7 @@ const Carousel = () => {
                       src={carouselItem.images.webp.image_url}
                       alt={carouselItem.title}
                     />
-                    <div className="px-3 pb-4">
+                    <div className="block px-3 pb-4">
                       <p className="capitalize bg-[#ece48b] inline-block text-black font-semibold px-2 rounded-sm">
                         recommend
                       </p>
@@ -60,6 +60,14 @@ const Carousel = () => {
                   </div>
 
                   <div className="w-full">
+                    <div className="block px-3 pb-4 absolute bottom-1">
+                      <p className="capitalize bg-[#ece48b] inline-block text-black font-semibold px-2 rounded-sm">
+                        recommend
+                      </p>
+                      <h1 className="xl:text-3xl font-bold text-neutral-200">
+                        {carouselItem.title}
+                      </h1>
+                    </div>
                     <img
                       className="w-full md:h-[500px] object-contain object-right"
                       src={carouselItem.trailer.images.maximum_image_url}
