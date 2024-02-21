@@ -3,4 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  .carousel-shadow {
+    box-shadow: inset 800px 0px 90px 50px #141518;
+  }
 }
+
+/* <div className="w-full h-full absolute top-0 carousel-shadow"></div> */

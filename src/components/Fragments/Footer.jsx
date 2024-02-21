@@ -3,8 +3,8 @@ import Copyright from "../Elements/Copyright/Copyright";
 const Footer = () => {
   return (
     <>
-      <footer className="mb-5">
-        <div className="flex justify-between items-center border-b border-neutral-500 mt-14 mx-8 capitalize">
+      <footer className="pb-5">
+        <div className="flex justify-between items-center border-b border-neutral-500 mt-14 mx-8 px-2 capitalize">
           <div className="w-20 md:w-24 mb-2">
             <img src="/logo.webp" alt="" />
           </div>

@@ -64,8 +64,8 @@ const DetailAnime = () => {
               <Synopsis detail={detail} />
               <Episode episodes={episodes} />
             </div>
+            <Footer />
           </MainLayout>
-          <Footer />
         </>
       )}
     </div>
