@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { getCarouselAnime } from "../../services/anime.service";
+// import CustomIcon from "../Elements/CustomIcon/Icon";
 
 const Carousel = () => {
   const [loading, setLoading] = useState(false);
@@ -18,6 +19,12 @@ const Carousel = () => {
       setLoading(false);
     });
   }, []);
+
+  const formatDate = (airedDate) => {
+    const parsedDate = new Date(airedDate);
+    const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+    return parsedDate.toLocaleDateString("en-GB", options);
+  };
 
   return (
     <>
@@ -42,7 +49,7 @@ const Carousel = () => {
         >
           {carousel.map((carouselItem, index) => (
             <SwiperSlide key={index + 1}>
-              <a href={`anime/${carouselItem.mal_id}`}>
+              <section>
                 <main className="flex justify-between items-end bg-[#141518] relative">
                   <div className="w-full h-full xl:flex xl:items-end absolute xl:carousel-shadow-xl carousel-shadow-sm">
                     <img
@@ -54,9 +61,25 @@ const Carousel = () => {
                       <p className="capitalize bg-[#ece48b] text-xs xl:text-sm inline-block text-black font-semibold px-2 rounded-sm">
                         recommend
                       </p>
-                      <h1 className="w-3/4 xl:w-full xl:text-3xl font-bold whitespace-nowrap overflow-hidden text-ellipsis">
+                      <h1 className="w-3/4 xl:w-full text-xl xl:text-3xl font-bold whitespace-nowrap overflow-hidden text-ellipsis">
                         {carouselItem.title}
                       </h1>
+                      <p className="text-sm font-light">
+                        {formatDate(carouselItem.aired.from)}
+                      </p>
+
+                      {/* <div className="mt-3">
+                        <a
+                          href={`anime/${carouselItem.mal_id}`}
+                          className="capitalize text-sm bg-[#ece48b] text-black font-semibold px-4 py-1 rounded-xl"
+                        >
+                          details
+                          <CustomIcon
+                            icon="m8.25 4.5 7.5 7.5-7.5 7.5"
+                            classname="h-4 w-4 inline-block"
+                          />
+                        </a>
+                      </div> */}
                     </div>
                   </div>
 
@@ -68,7 +91,7 @@ const Carousel = () => {
                     />
                   </div>
                 </main>
-              </a>
+              </section>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -78,3 +101,9 @@ const Carousel = () => {
 };
 
 export default Carousel;
+
+{
+  /* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg> */
+}
