@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer components {
-  .carousel-shadow {
+  .carousel-shadow-xl {
     box-shadow: inset 800px 0px 90px 50px #141518;
+  }
+
+  .carousel-shadow-sm {
+    box-shadow: inset 0px -80px 50px 0px #0a0909;
   }
 }
 

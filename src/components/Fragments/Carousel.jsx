@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { getCarouselAnime } from "../../services/anime.service";
-import Loading from "../Elements/Loading/loading";
 
 const Carousel = () => {
   const [loading, setLoading] = useState(false);
@@ -23,7 +22,7 @@ const Carousel = () => {
   return (
     <>
       {loading ? (
-        <Loading />
+        " "
       ) : (
         <Swiper
           spaceBetween={10}
@@ -32,7 +31,7 @@ const Carousel = () => {
           loop={true}
           autoplay={{
             delay: 5000,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
           }}
           pagination={{
             clickable: true,
@@ -43,31 +42,23 @@ const Carousel = () => {
             <SwiperSlide key={index + 1}>
               <a href={`anime/${carouselItem.mal_id}`}>
                 <main className="flex justify-between items-end bg-[#141518] relative">
-                  <div className="hidden w-full h-full xl:flex xl:items-end absolute carousel-shadow">
+                  <div className="w-full h-full xl:flex xl:items-end absolute xl:carousel-shadow-xl carousel-shadow-sm">
                     <img
-                      className="w-auto object-contain object-left m-4 rounded-md"
+                      className="hidden xl:block w-auto object-contain object-left m-4 rounded-md"
                       src={carouselItem.images.webp.image_url}
                       alt={carouselItem.title}
                     />
-                    <div className="block px-3 pb-4">
-                      <p className="capitalize bg-[#ece48b] inline-block text-black font-semibold px-2 rounded-sm">
+                    <div className="flex flex-col items-start justify-end h-full px-3 pb-4">
+                      <p className="capitalize bg-[#ece48b] text-xs xl:text-sm inline-block text-black font-semibold px-2 rounded-sm">
                         recommend
                       </p>
-                      <h1 className="xl:text-3xl font-bold">
+                      <h1 className="w-3/4 xl:w-full xl:text-3xl font-bold whitespace-nowrap overflow-hidden text-ellipsis">
                         {carouselItem.title}
                       </h1>
                     </div>
                   </div>
 
                   <div className="w-full">
-                    <div className="block px-3 pb-4 absolute bottom-1">
-                      <p className="capitalize bg-[#ece48b] inline-block text-black font-semibold px-2 rounded-sm">
-                        recommend
-                      </p>
-                      <h1 className="xl:text-3xl font-bold text-neutral-200">
-                        {carouselItem.title}
-                      </h1>
-                    </div>
                     <img
                       className="w-full md:h-[500px] object-contain object-right"
                       src={carouselItem.trailer.images.maximum_image_url}
