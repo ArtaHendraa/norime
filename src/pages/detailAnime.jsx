@@ -130,7 +130,7 @@ const Episode = (props) => {
               classname="text-[#ece48b] font-semibold capitalize bg-[#1c1d22] py-2 text-center rounded-lg"
               onClick={loadMoreEpisodes}
             >
-              load more
+              view more
             </Button>
           )}
         </>

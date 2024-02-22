@@ -91,12 +91,7 @@ const HomePage = () => {
 
         {!loading && (
           <>
-            <Carousel anime={anime} />
-          </>
-        )}
-
-        {!loading && (
-          <>
+            <Carousel />
             <ContentLayout titleStyle="hidden">
               <ContentCard anime={anime} banner="hidden" />
             </ContentLayout>
