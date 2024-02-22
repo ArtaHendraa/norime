@@ -85,9 +85,7 @@ const Carousel = () => {
                             />
                           </svg>
 
-                          <p className="text-sm font-light ">
-                            {carouselItem.score}
-                          </p>
+                          <p className="text-base">{carouselItem.score}</p>
                         </div>
                       </div>
                     </div>
