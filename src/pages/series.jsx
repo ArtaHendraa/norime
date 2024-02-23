@@ -21,7 +21,6 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    setCurrentPage(1);
     fetchData(1);
   }, []);
 
@@ -51,10 +50,8 @@ const HomePage = () => {
 
   const loadPage = (pageNumber) => {
     if (!loading && pageNumber >= 1 && pageNumber <= totalPages) {
-      document.body.style.overflow = "hidden";
       setCurrentPage(pageNumber);
       fetchData(pageNumber);
-      window.scrollTo({ top: 0 });
     }
   };
 
@@ -77,32 +74,27 @@ const HomePage = () => {
     );
   };
 
-  useEffect(() => {
-    if (!loading) {
-      document.body.style.overflow = "auto";
-    }
-  }, [loading]);
-
   return (
-    <MainLayout>
-      {loading && <Loading />}
-      {!loading && (
-        <ContentLayout title="series">
-          <ContentCard anime={anime} banner="hidden" />
-        </ContentLayout>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <MainLayout>
+          <ContentLayout title="series">
+            <ContentCard anime={anime} banner="hidden" />
+          </ContentLayout>
+          <Pagination
+            calculateDisplayedPages={calculateDisplayedPages}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            loadPrevPage={loadPrevPage}
+            loadNextPage={loadNextPage}
+            loadPage={loadPage}
+          />
+          <Footer />
+        </MainLayout>
       )}
-      {!loading && (
-        <Pagination
-          calculateDisplayedPages={calculateDisplayedPages}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          loadPrevPage={loadPrevPage}
-          loadNextPage={loadNextPage}
-          loadPage={loadPage}
-        />
-      )}
-      <Footer />
-    </MainLayout>
+    </>
   );
 };
 

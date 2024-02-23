@@ -22,7 +22,6 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    setCurrentPage(1);
     fetchData(1);
   }, []);
 
@@ -52,10 +51,8 @@ const HomePage = () => {
 
   const loadPage = (pageNumber) => {
     if (!loading && pageNumber >= 1 && pageNumber <= totalPages) {
-      document.body.style.overflow = "hidden";
       setCurrentPage(pageNumber);
       fetchData(pageNumber);
-      window.scrollTo({ top: 0 });
     }
   };
 
@@ -78,27 +75,16 @@ const HomePage = () => {
     );
   };
 
-  useEffect(() => {
-    if (!loading) {
-      document.body.style.overflow = "auto";
-    }
-  }, [loading]);
-
   return (
     <>
-      <MainLayout>
-        {loading && <Loading />}
-
-        {!loading && (
-          <>
-            <Carousel />
-            <ContentLayout titleStyle="hidden">
-              <ContentCard anime={anime} banner="hidden" />
-            </ContentLayout>
-          </>
-        )}
-
-        {!loading && (
+      {loading ? (
+        <Loading />
+      ) : (
+        <MainLayout>
+          <Carousel />
+          <ContentLayout titleStyle="hidden">
+            <ContentCard anime={anime} banner="hidden" />
+          </ContentLayout>
           <Pagination
             calculateDisplayedPages={calculateDisplayedPages}
             currentPage={currentPage}
@@ -107,9 +93,9 @@ const HomePage = () => {
             loadNextPage={loadNextPage}
             loadPage={loadPage}
           />
-        )}
-        <Footer />
-      </MainLayout>
+          <Footer />
+        </MainLayout>
+      )}
     </>
   );
 };
