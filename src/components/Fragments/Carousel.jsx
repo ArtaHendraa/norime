@@ -56,7 +56,7 @@ const Carousel = () => {
                         alt={carouselItem.title}
                       />
                       <div className="flex flex-col items-start justify-end h-full px-3 pb-4">
-                        <Banner classname="bg-[#ece48b] text-[#141518]">
+                        <Banner classname="bg-[#ece48b] text-[#141518] text-[9px]">
                           recommend
                         </Banner>
                         <Hading classname="w-3/4 md:w-full text-neutral-100 text-xl xl:text-3xl font-bold whitespace-nowrap overflow-hidden text-ellipsis">
@@ -104,9 +104,12 @@ const Carousel = () => {
                           </div>
                         </div>
 
-                        <div className="hidden md:flex items-center gap-2 mt-1">
+                        <div className="flex items-center gap-2 mt-1">
                           {carouselItem.genres.map((genre, index) => (
-                            <Banner key={index + 1} classname="bg-[#444547]">
+                            <Banner
+                              key={index + 1}
+                              classname="bg-[#444547] text-[9px]"
+                            >
                               {genre.name}
                             </Banner>
                           ))}
