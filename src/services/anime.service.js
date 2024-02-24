@@ -52,27 +52,26 @@ export const getEpisodeAnime = (mal_id, callback) => {
     });
 };
 
-// export const getCarouselAnime = async () => {
-//   try {
-//     const response = await axios.get(
-//       `https://api.jikan.moe/v4/recommendations/anime`
-//     );
-//     return response.data;
-//   } catch (error) {
-//     console.error("Error fetching carousel data:", error);
-//     throw error; // Rethrow the error to handle it in the component
-//   }
-// };
+export const getCarouselAnime = (ids, callback, retryAttempt = 0) => {
+  const backoffDelay = 60 * 1000;
 
-export const getCarouselAnime = (ids, callback) => {
-  // Map over the array of IDs and fetch data for each ID using axios
   const fetchPromises = ids.map((id) =>
     axios
       .get(`https://api.jikan.moe/v4/anime/${id}`)
       .then((response) => response.data.data)
+      .catch((error) => {
+        if (error.response && error.response.status === 429) {
+          console.warn(`Rate limited for ID ${id}. Retrying after a delay...`);
+          return new Promise((resolve) =>
+            setTimeout(resolve, backoffDelay)
+          ).then(() => getCarouselAnime([id], callback, retryAttempt + 1));
+        } else {
+          console.error(`Error fetching carousel data for ID ${id}:`, error);
+          throw error;
+        }
+      })
   );
 
-  // Wait for all promises to resolve using Promise.all
   Promise.all(fetchPromises)
     .then((data) => callback(data))
     .catch((error) => console.error("Error fetching carousel data:", error));
