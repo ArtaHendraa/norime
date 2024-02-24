@@ -24,7 +24,7 @@ const HomePage = () => {
     fetchData(1);
   }, []);
 
-  const fetchData = async (page) => {
+  const fetchData = async (page, retryAttempt = 0) => {
     setLoading(true);
 
     try {
@@ -40,7 +40,14 @@ const HomePage = () => {
         setCachedPages((prev) => ({ ...prev, [page]: { data, totalPages } }));
       }
     } catch (error) {
-      console.error("Error fetching anime data:", error);
+      if (error.response && error.response.status === 429) {
+        const backoffDelay = 60 * 1000;
+        console.warn("Rate limited. Retrying after a delay...");
+        await new Promise((resolve) => setTimeout(resolve, backoffDelay));
+        fetchData(page, retryAttempt + 1);
+      } else {
+        console.error("Error fetching anime data:", error);
+      }
     } finally {
       setTimeout(() => {
         setLoading(false);
