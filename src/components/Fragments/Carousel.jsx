@@ -108,7 +108,7 @@ const Carousel = () => {
                           {carouselItem.genres.map((genre, index) => (
                             <Banner
                               key={index + 1}
-                              classname="bg-[#444547] text-[9px]"
+                              classname="bg-[#444547] text-[9px] text-neutral-100"
                             >
                               {genre.name}
                             </Banner>
