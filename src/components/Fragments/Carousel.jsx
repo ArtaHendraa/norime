@@ -49,9 +49,9 @@ const Carousel = () => {
               <section>
                 <a href={`anime/${carouselItem.mal_id}`}>
                   <main className="flex justify-between items-end bg-[#141518] relative">
-                    <div className="w-full h-full xl:flex xl:items-end absolute xl:carousel-shadow-xl carousel-shadow-sm">
+                    <div className="absolute w-full h-full xl:flex xl:items-end xl:carousel-shadow-xl carousel-shadow-sm">
                       <img
-                        className="hidden xl:block w-auto object-contain object-left m-4 rounded-md"
+                        className="hidden object-contain object-left w-auto m-4 rounded-md xl:block"
                         src={carouselItem.images.webp.image_url}
                         alt={carouselItem.title}
                       />
@@ -59,7 +59,7 @@ const Carousel = () => {
                         <Banner classname="bg-[#ece48b] text-[#141518] text-[9px]">
                           recommend
                         </Banner>
-                        <Hading classname="w-3/4 md:w-full text-neutral-100 text-xl xl:text-3xl font-bold whitespace-nowrap overflow-hidden text-ellipsis">
+                        <Hading classname="w-3/4 overflow-hidden text-xl font-bold md:w-full text-neutral-100 xl:text-3xl whitespace-nowrap text-ellipsis">
                           {carouselItem.title}
                         </Hading>
                         <Hading classname="hidden md:block text-sm text-[#ece48b] whitespace-nowrap overflow-hidden text-ellipsis">

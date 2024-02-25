@@ -1,7 +1,7 @@
 const Copyright = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <p className="text-xs text-neutral-400 text-center pt-3">
+    <p className="pt-3 text-xs text-center text-neutral-400">
       &copy;{currentYear} Norime | ALL Rights Reserved
     </p>
   );

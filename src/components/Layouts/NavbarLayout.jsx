@@ -6,7 +6,7 @@ const NavbarLayout = ({ children }) => {
         className="bg-[rgba(15,15,15,.9)] px-5 md:px-8 xl:px-0 text-white fixed left-0 right-0 backdrop-blur-sm"
         id="nav"
       >
-        <div className="flex justify-between items-center xl:w-4/5 mx-auto">
+        <div className="flex items-center justify-between mx-auto xl:w-4/5">
           {children}
         </div>
       </div>

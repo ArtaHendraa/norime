@@ -24,8 +24,8 @@ const Pagination = (props) => {
           </h1>
         </div>
 
-        <div className=" hidden md:block text-neutral-200 mt-3">
-          <div className="flex flex-wrap gap-2 items-center justify-center mx-auto">
+        <div className="hidden mt-3  md:block text-neutral-200">
+          <div className="flex flex-wrap items-center justify-center gap-2 mx-auto">
             <Button onClick={loadPrevPage} disabled={currentPage === 1}>
               <CustomIcon
                 classname="w-4 h-4"
@@ -59,9 +59,9 @@ const Pagination = (props) => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-3 px-5 md:hidden mt-3">
+        <div className="flex justify-center gap-3 px-5 mt-3 md:hidden">
           <Button
-            classname="w-full h-8 rounded font-bold border flex items-center justify-center"
+            classname="flex items-center justify-center w-full h-8 font-bold border rounded"
             onClick={loadPrevPage}
             disabled={currentPage === 1}
           >
@@ -73,7 +73,7 @@ const Pagination = (props) => {
           </Button>
 
           <Button
-            classname="w-full h-8 rounded font-bold border flex items-center justify-center"
+            classname="flex items-center justify-center w-full h-8 font-bold border rounded"
             onClick={loadNextPage}
             disabled={currentPage === totalPages}
           >

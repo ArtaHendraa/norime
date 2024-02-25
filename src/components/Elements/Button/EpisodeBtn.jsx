@@ -11,11 +11,11 @@ const EpisodeButton = (props) => {
           <Hading classname="text-lg capitalize text-neutral-100">
             episode {episode}
           </Hading>
-          <Hading classname="text-neutral-300 overflow-hidden whitespace-nowrap text-ellipsis text-sm">
+          <Hading classname="overflow-hidden text-sm text-neutral-300 whitespace-nowrap text-ellipsis">
             {title}
           </Hading>
         </div>
-        <Hading classname="text-neutral-400 text-sm">{date}</Hading>
+        <Hading classname="text-sm text-neutral-400">{date}</Hading>
       </div>
     </Button>
   );

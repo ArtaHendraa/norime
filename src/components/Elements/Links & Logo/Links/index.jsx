@@ -5,7 +5,7 @@ import Link from "./Link";
 const Links = (props) => {
   const { linksData, classname } = props;
   return (
-    <div className="hidden xl:flex xl:items-center xl:gap-10 capitalize ">
+    <div className="hidden capitalize xl:flex xl:items-center xl:gap-10 ">
       <Link linksData={linksData} classname={classname} />
     </div>
   );

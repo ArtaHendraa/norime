@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 const Button = (props) => {
   const {
-    classname = "px-4 py-2 rounded font-bold",
+    classname = "px-4 py-2 font-bold rounded",
     onClick,
     disabled,
     children,

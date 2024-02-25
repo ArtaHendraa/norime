@@ -11,8 +11,8 @@ const ContentCard = (props) => {
           key={anime.mal_id}
           className="group w-[99%]"
         >
-          <div className="w-full h-auto mx-auto relative overflow-hidden rounded-lg">
-            <div className="absolute flex items-center justify-center bg-black w-full h-full group-hover:opacity-60 opacity-0 duration-300 hover:scale-150 z-10">
+          <div className="relative w-full h-auto mx-auto overflow-hidden rounded-lg">
+            <div className="absolute z-10 flex items-center justify-center w-full h-full duration-300 bg-black opacity-0 group-hover:opacity-60 hover:scale-150">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -47,11 +47,11 @@ const ContentCard = (props) => {
               alt={anime.title}
             />
           </div>
-          <div className="font-semibold mt-1">
+          <div className="mt-1 font-semibold">
             <p className="whitespace-nowrap overflow-hidden text-ellipsis group-hover:text-[#ece48b] text-neutral-200 duration-300">
               {anime.title}
             </p>
-            <p className="text-neutral-500 text-sm">
+            <p className="text-sm text-neutral-500">
               {anime.aired.prop.from.year}
             </p>
           </div>

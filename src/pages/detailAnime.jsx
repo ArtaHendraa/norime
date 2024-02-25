@@ -48,14 +48,14 @@ const DetailAnime = () => {
                   allowFullScreen
                 ></iframe>
               ) : (
-                <Hading classname="flex items-center justify-center w-full h-full bg-red-950 text-neutral-400 font-semibold absolute inset-0 capitalize">
+                <Hading classname="absolute inset-0 flex items-center justify-center w-full h-full font-semibold capitalize bg-red-950 text-neutral-400">
                   trailer not found
                 </Hading>
               )}
             </div>
 
             <div className="px-2">
-              <Hading classname="text-2xl text-neutral-100 font-semibold mt-3">
+              <Hading classname="mt-3 text-2xl font-semibold text-neutral-100">
                 {detail.title}
               </Hading>
               <Hading classname="text-sm text-[#ece48b] mb-3">
@@ -111,8 +111,8 @@ const Episode = (props) => {
     return parsedDate.toLocaleDateString("en-GB", options);
   };
   return (
-    <MainLayout classname="flex flex-col gap-y-3 mt-5">
-      <Hading classname="capitalize text-xl text-neutral-100">
+    <MainLayout classname="flex flex-col mt-5 gap-y-3">
+      <Hading classname="text-xl capitalize text-neutral-100">
         {episodes.length} episodes
       </Hading>
       {episodes.length > 0 && (

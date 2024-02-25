@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 const Hading = (props) => {
   const {
-    classname = "capitalize text-xl text-neutral-100",
+    classname = "text-xl capitalize text-neutral-100",
 
     children,
   } = props;
