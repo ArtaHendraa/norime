@@ -1,3 +1,3 @@
-## <a href="norime-site.vercel.app"><h1>IN DEVELOPMENT</h1></a>
+## <a href="norime-site.vercel.app">norime.vercel.app</a>
 
-
+<h2>IN DEVELOPMENT</h2>
