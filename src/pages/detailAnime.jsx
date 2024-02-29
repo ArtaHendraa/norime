@@ -89,7 +89,7 @@ const DetailAnime = () => {
               </div>
 
               <div className="flex items-center justify-center gap-3 my-3">
-                <Button classname="bg-[#141518] text-neutral-100 w-full flex items-center justify-center capitalize font-medium py-2 rounded-full">
+                <Button classname="bg-[#1c1d22] text-neutral-100 w-full flex items-center justify-center capitalize font-medium py-2 rounded-full">
                   <MoreInfo
                     text="bookmark"
                     icon="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
