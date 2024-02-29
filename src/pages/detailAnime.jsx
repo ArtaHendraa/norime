@@ -88,7 +88,7 @@ const DetailAnime = () => {
                 ))}
               </div>
 
-              <div className="flex items-center justify-center gap-5 my-3">
+              <div className="flex items-center justify-center gap-3 my-3">
                 <Button classname="bg-[#ece48b] text-black w-full flex items-center justify-center capitalize font-semibold py-2 rounded-full">
                   <MoreInfo
                     text="bookmark"
