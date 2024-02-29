@@ -14,7 +14,7 @@ const Carousel = () => {
 
   useEffect(() => {
     setLoading(true);
-    const animeIds = [36792, 38474, 48316, 48548, 33352, 47917, 48736];
+    const animeIds = [36792, 38474, 48316, 50709, 33352, 47917, 48736, 43299];
     getCarouselAnime(animeIds, (data) => {
       setCarousel(data);
       setTimeout(() => {
@@ -34,7 +34,7 @@ const Carousel = () => {
           spaceBetween={0}
           centeredSlides={true}
           slidesPerView={1}
-          loop={false}
+          loop={true}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
