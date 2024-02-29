@@ -30,28 +30,6 @@ export const getAnime = async (page, apiConfig) => {
   }
 };
 
-export const getDetailAnime = (mal_id, callback) => {
-  axios
-    .get(`https://api.jikan.moe/v4/anime/${mal_id}`)
-    .then((res) => {
-      callback(res.data.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-export const getEpisodeAnime = (mal_id, callback) => {
-  axios
-    .get(`https://api.jikan.moe/v4/anime/${mal_id}/episodes`)
-    .then((res) => {
-      callback(res.data.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 export const getCarouselAnime = (ids, callback, retryAttempt = 0) => {
   const backoffDelay = 60 * 1000;
 
@@ -75,4 +53,26 @@ export const getCarouselAnime = (ids, callback, retryAttempt = 0) => {
   Promise.all(fetchPromises)
     .then((data) => callback(data))
     .catch((error) => console.error("Error fetching carousel data:", error));
+};
+
+export const getDetailAnime = (mal_id, callback) => {
+  axios
+    .get(`https://api.jikan.moe/v4/anime/${mal_id}`)
+    .then((res) => {
+      callback(res.data.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getEpisodeAnime = (mal_id, callback) => {
+  axios
+    .get(`https://api.jikan.moe/v4/anime/${mal_id}/episodes`)
+    .then((res) => {
+      callback(res.data.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
