@@ -119,7 +119,7 @@ const Episode = (props) => {
         <>
           {episodes.slice(0, episodesToShow).map((episode, index) => (
             <EpisodeButton
-              key={`episode ${index}`}
+              key={`episode ${index + 1}`}
               episode={episode.mal_id}
               title={episode.title}
               date={formatDate(episode.aired)}

@@ -8,8 +8,12 @@ import Navbar from "./components/Fragments/Navbar.jsx";
 import SeriesPage from "./pages/series.jsx";
 import MoviePage from "./pages/movie.jsx";
 import DetailAnime from "./pages/detailAnime.jsx";
+import ErrorPage from "./pages/error.jsx";
 
 const router = createBrowserRouter([
+  {
+    errorElement: <ErrorPage />,
+  },
   {
     path: "/",
     element: <HomePage />,
@@ -27,6 +31,14 @@ const router = createBrowserRouter([
     element: <PopularPage />,
   },
   {
+    path: "/bookmark",
+    element: (
+      <div className="flex items-center justify-center text-2xl font-bold uppercase min-h-96">
+        not available fo now
+      </div>
+    ),
+  },
+  {
     path: "/anime/:mal_id",
     element: <DetailAnime />,
   },
@@ -40,6 +52,10 @@ const router = createBrowserRouter([
   },
   {
     path: "popular/anime/:mal_id",
+    element: <DetailAnime />,
+  },
+  {
+    path: "bookmark/anime/:mal_id",
     element: <DetailAnime />,
   },
 ]);

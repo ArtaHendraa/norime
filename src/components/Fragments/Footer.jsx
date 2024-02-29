@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
       <footer className="pb-5">
-        <div className="flex items-center justify-between px-2 mx-8 capitalize border-b border-neutral-500 mt-14">
+        <div className="flex items-center justify-between px-2 mx-8 capitalize border-b gap-x-2 border-neutral-500 mt-14">
           <div className="w-20 mb-2 md:w-24">
             <img src="/logo.webp" alt="" />
           </div>
