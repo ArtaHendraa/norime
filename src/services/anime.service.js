@@ -4,23 +4,17 @@ import axios from "axios";
 export const getAnime = async (page, apiConfig) => {
   const { baseURL, limit } = apiConfig;
   const itemsPerPage = limit || 24;
-
   try {
     const response = await axios.get(
       `${baseURL}&limit=${itemsPerPage}&page=${page}`
     );
     const data = response.data;
-
     if (!data || !data.data || !data.pagination || !data.pagination.items) {
       throw new Error("Invalid API response format");
     }
-
     const totalItems = data.pagination.items.total;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    // Sorting the data based on rank
     const sortedData = data.data.sort((a, b) => a.rank - b.rank);
-
     return {
       data: sortedData || [],
       totalPages: totalPages || 0,
@@ -32,7 +26,6 @@ export const getAnime = async (page, apiConfig) => {
 
 export const getCarouselAnime = (ids, callback, retryAttempt = 0) => {
   const backoffDelay = 60 * 1000;
-
   const fetchPromises = ids.map((id) =>
     axios
       .get(`https://api.jikan.moe/v4/anime/${id}`)
@@ -49,7 +42,6 @@ export const getCarouselAnime = (ids, callback, retryAttempt = 0) => {
         }
       })
   );
-
   Promise.all(fetchPromises)
     .then((data) => callback(data))
     .catch((error) => console.error("Error fetching carousel data:", error));

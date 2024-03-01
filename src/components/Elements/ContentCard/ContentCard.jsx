@@ -5,10 +5,10 @@ const ContentCard = (props) => {
 
   return (
     <>
-      {anime.map((anime) => (
+      {anime.map((anime, index) => (
         <a
           href={`anime/${anime.mal_id}`}
-          key={anime.mal_id}
+          key={index + 1}
           className="group w-[99%]"
         >
           <div className="relative w-full h-auto mx-auto overflow-hidden rounded-lg">

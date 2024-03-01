@@ -1,6 +1,6 @@
 const Loading = () => {
   return (
-    <div className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-[#0a0909] bg-opacity-100 z-30 overflow-hidden">
+    <div className="fixed top-0 left-0 w-full h-screen flex flex-col gap-y-2 items-center justify-center text-neutral-400 bg-[#0a0909] bg-opacity-100 z-30 overflow-hidden">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="80"
@@ -25,6 +25,10 @@ const Loading = () => {
           />
         </path>
       </svg>
+      <div className="px-5 font-semibold text-center capitalize">
+        <p>load data...</p>
+        <p>please wait or refresh the browser.</p>
+      </div>
     </div>
   );
 };
