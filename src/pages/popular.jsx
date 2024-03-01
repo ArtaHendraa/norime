@@ -88,7 +88,7 @@ const HomePage = () => {
       ) : (
         <MainLayout>
           <ContentLayout title="popular">
-            <ContentCard anime={anime} banner="hidden" />
+            <ContentCard anime={anime} banner="block" />
           </ContentLayout>
           <Pagination
             calculateDisplayedPages={calculateDisplayedPages}
