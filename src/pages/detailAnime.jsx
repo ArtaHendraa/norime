@@ -28,6 +28,7 @@ const DetailAnime = () => {
     setLoading(true);
     getEpisodeAnime(mal_id, (data) => {
       setEpisode(data);
+      setLoading(false);
     });
   }, [mal_id]);
 
@@ -82,7 +83,7 @@ const DetailAnime = () => {
                 {detail.genres.map((genre, index) => (
                   <Banner
                     key={index + 1}
-                    classname="border border-[#ece48b] bg-[#0a0909] rounded-tl-xl rounded-br-xl px-3 text-sm py-[0.13rem] text-neutral-200 font-normal"
+                    classname="border border-[#ece48b] bg-[#0a0909] rounded-tl-xl rounded-br-xl px-3 text-xs py-[0.13rem] text-neutral-200 font-normal"
                   >
                     {genre.name}
                   </Banner>
