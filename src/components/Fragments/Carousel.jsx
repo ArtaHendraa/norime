@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { getCarouselAnime } from "../../services/anime.service";
 import Hading from "../Elements/Hading/Hading";
 import Banner from "../Elements/Banner/Banner";
-import PreRenderCarousel from "./PrerenderCarousel";
+import PreRenderCarousel from "./PreRenderCarousel";
 
 const Carousel = () => {
   const [loading, setLoading] = useState(false);
