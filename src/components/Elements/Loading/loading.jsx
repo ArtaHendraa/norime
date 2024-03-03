@@ -27,7 +27,7 @@ const Loading = () => {
       </svg>
       <div className="px-5 font-semibold text-center capitalize">
         <p>load data...</p>
-        <p>If data takes too long to appear, please refresh the browser</p>
+        <p>Please refresh the browser if the data not displayed</p>
       </div>
     </div>
   );
