@@ -1,4 +1,4 @@
-# norime.vercel.app
+# norime
 
 <div align="center" width="100%">
    <img width="600" alt="norime" src="https://i.imgur.com/PkdVyPg.png">
