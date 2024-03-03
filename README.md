@@ -10,9 +10,13 @@ Hii, my name is arta this is one of my project, this is a website that provides 
 
 ## Features
 
-- **Modern Stack**: Built with React Vite and Tailwind CSS for responsive and elegant styling
-- **Anime Information**: On this website, you can find comprehensive anime information, including synopses, genres, titles, total episodes, and more.
-- **Responsive Design**: Ensure a seamless experience across various devices and screen sizes.
+- **Modern Stack**: Crafted with React Vite and Tailwind CSS for a responsive and elegant design.
+- **Anime Information**: Explore a wealth of anime details, from synopses and genres to titles, total episodes, and beyond.
+- **Series**: Dive into comprehensive information on all anime series.
+- **Movie**: Discover details on all anime movies.
+- **Popular**: Explore information on popular anime, complete with rankings.
+- **Bookmark**: Save your favorite anime for easy access.
+- **Responsive Design**: Enjoy a seamless experience on various devices and screen sizes.
 
 ## Getting Started
 
