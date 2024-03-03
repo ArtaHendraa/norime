@@ -33,7 +33,7 @@ const Carousel = () => {
           spaceBetween={0}
           centeredSlides={true}
           slidesPerView={1}
-          loop={false}
+          loop={true}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
