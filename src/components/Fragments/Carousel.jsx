@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { getCarouselAnime } from "../../services/anime.service";
 import Hading from "../Elements/Hading/Hading";
 import Banner from "../Elements/Banner/Banner";
+import PreRenderCarousel from "./PrerenderCarousel";
 
 const Carousel = () => {
   const [loading, setLoading] = useState(false);
@@ -14,19 +15,19 @@ const Carousel = () => {
 
   useEffect(() => {
     setLoading(true);
-    const animeIds = [36792, 51009, 48316, 50709, 33352, 47917, 48736, 43299];
+    const animeIds = [36792, 51009, 48316, 50709, 33352, 48736, 43299];
     getCarouselAnime(animeIds, (data) => {
       setCarousel(data);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 600);
     });
   }, []);
 
   return (
     <>
       {loading ? (
-        <div className="w-full xl:min-h-[500px] flex items-center justify-center capitalize">
-          <h1>load carousel...</h1>
-        </div>
+        <PreRenderCarousel />
       ) : (
         <Swiper
           spaceBetween={0}
