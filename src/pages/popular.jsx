@@ -59,6 +59,7 @@ const HomePage = () => {
     if (!loading && pageNumber >= 1 && pageNumber <= totalPages) {
       setCurrentPage(pageNumber);
       fetchData(pageNumber);
+      window.scrollTo({ top: 0 });
     }
   };
 
