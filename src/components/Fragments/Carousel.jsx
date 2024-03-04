@@ -18,9 +18,7 @@ const Carousel = () => {
     const animeIds = [36792, 51009, 48316, 50709, 33352, 48736, 43299];
     getCarouselAnime(animeIds, (data) => {
       setCarousel(data);
-      setTimeout(() => {
-        setLoading(false);
-      }, 600);
+      setLoading(false);
     });
   }, []);
 

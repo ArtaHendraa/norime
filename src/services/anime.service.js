@@ -1,5 +1,8 @@
 /* eslint-disable no-useless-catch */
 import axios from "axios";
+import rateLimit from "axios-rate-limit";
+
+const api = axios.create();
 
 export const getAnime = async (page, apiConfig) => {
   const { baseURL, limit } = apiConfig;
@@ -24,12 +27,18 @@ export const getAnime = async (page, apiConfig) => {
   }
 };
 
+const apiWithRateLimit = rateLimit(api, {
+  maxRequests: 2,
+  perMilliseconds: 1000,
+});
 export const getCarouselAnime = async (ids, callback, retryAttempt = 0) => {
   const backoffDelay = 60 * 1000;
-  const fetchPromises = ids.map(async (id, index) => {
-    await new Promise((resolve) => setTimeout(resolve, index * 1000)); // Delay 1s each
+  const fetchPromises = ids.map(async (id) => {
+    // await new Promise((resolve) => setTimeout(resolve, index * 500)); // Delay 500ms each
     try {
-      const response = await axios.get(`https://api.jikan.moe/v4/anime/${id}`);
+      const response = await apiWithRateLimit.get(
+        `https://api.jikan.moe/v4/anime/${id}`
+      );
       return response.data.data;
     } catch (error) {
       if (error.response && error.response.status === 429) {
