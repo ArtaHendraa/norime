@@ -24,27 +24,31 @@ export const getAnime = async (page, apiConfig) => {
   }
 };
 
-export const getCarouselAnime = (ids, callback, retryAttempt = 0) => {
+export const getCarouselAnime = async (ids, callback, retryAttempt = 0) => {
   const backoffDelay = 60 * 1000;
-  const fetchPromises = ids.map((id) =>
-    axios
-      .get(`https://api.jikan.moe/v4/anime/${id}`)
-      .then((response) => response.data.data)
-      .catch((error) => {
-        if (error.response && error.response.status === 429) {
-          console.warn(`Rate limited for ID ${id}. Retrying after a delay...`);
-          return new Promise((resolve) =>
-            setTimeout(resolve, backoffDelay)
-          ).then(() => getCarouselAnime([id], callback, retryAttempt + 1));
-        } else {
-          console.error(`Error fetching carousel data for ID ${id}:`, error);
-          throw error;
-        }
-      })
-  );
-  Promise.all(fetchPromises)
-    .then((data) => callback(data))
-    .catch((error) => console.error("Error fetching carousel data:", error));
+  const fetchPromises = ids.map(async (id, index) => {
+    await new Promise((resolve) => setTimeout(resolve, index * 1000)); // Delay 1s each
+    try {
+      const response = await axios.get(`https://api.jikan.moe/v4/anime/${id}`);
+      return response.data.data;
+    } catch (error) {
+      if (error.response && error.response.status === 429) {
+        console.warn(`Rate limited for ID ${id}. Retrying after a delay...`);
+        await new Promise((resolve) => setTimeout(resolve, backoffDelay));
+        return getCarouselAnime([id], callback, retryAttempt + 1);
+      } else {
+        console.error(`Error fetching carousel data for ID ${id}:`, error);
+        throw error;
+      }
+    }
+  });
+
+  try {
+    const data = await Promise.all(fetchPromises);
+    callback(data);
+  } catch (error) {
+    console.error("Error fetching carousel data:", error);
+  }
 };
 
 export const getDetailAnime = (mal_id, callback) => {
