@@ -20,7 +20,9 @@ const DetailAnime = () => {
     setLoading(true);
     getDetailAnime(mal_id, (data) => {
       setDetail(data);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 700);
     });
   }, [mal_id]);
 
@@ -48,6 +50,7 @@ const DetailAnime = () => {
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
                   src={`${detail.trailer.embed_url}?autoplay=0&showinfo=0`}
+                  // src={`https://www.youtube.com/embed/${detail.trailer.youtube_id}?enablejsapi=1&wmode=opaque&autoplay=0&showinfo=0`}
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -83,20 +86,26 @@ const DetailAnime = () => {
                 />
               </div>
 
-              <div className="flex items-center gap-2 mt-1">
-                {detail.genres.map((genre, index) => (
-                  <Banner
-                    key={index + 1}
-                    classname="border border-[#ece48b] bg-[#0a0909] rounded-tl-xl rounded-br-xl px-3 text-xs py-[0.13rem] text-neutral-200 font-normal"
-                  >
-                    {genre.name}
-                  </Banner>
-                ))}
+              <div className="flex flex-wrap items-center gap-2 mt-1">
+                {loading ? (
+                  " "
+                ) : (
+                  <>
+                    {detail.genres.map((genre, index) => (
+                      <Banner
+                        key={index + 1}
+                        classname="border border-[#ece48b] bg-[#0a0909] rounded-tl-xl rounded-br-xl px-3 text-xs py-[0.13rem] text-neutral-200 font-normal"
+                      >
+                        {genre.name}
+                      </Banner>
+                    ))}
+                  </>
+                )}
               </div>
 
               <div className="flex items-center justify-center gap-3 my-3">
                 <Button
-                  classname="bg-[#1c1d22] text-neutral-100 w-full flex items-center justify-center capitalize font-medium py-2 rounded-full"
+                  classname="bg-[#1c1d22] text-neutral-300 w-full flex items-center justify-center capitalize font-medium py-2 rounded-full"
                   onClick={Bookmark}
                 >
                   <MoreInfo
@@ -113,6 +122,12 @@ const DetailAnime = () => {
                   />
                 </Button>
               </div>
+              <Button classname="bg-[#1c1d22] text-neutral-300 w-full flex items-center justify-center capitalize font-medium py-2 rounded-full mb-3">
+                <MoreInfo
+                  text={`source: ${detail.source}`}
+                  icon="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                />
+              </Button>
 
               <Synopsis detail={detail} />
               <Episode episodes={episodes} />
