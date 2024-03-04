@@ -15,10 +15,12 @@ const Carousel = () => {
 
   useEffect(() => {
     setLoading(true);
-    const animeIds = [36792, 51009, 48316, 50709, 33352, 48736, 43299];
+    const animeIds = [36792, 48316, 50709, 33352, 48736];
     getCarouselAnime(animeIds, (data) => {
       setCarousel(data);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 600);
     });
   }, []);
 

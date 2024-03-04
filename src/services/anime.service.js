@@ -28,13 +28,13 @@ export const getAnime = async (page, apiConfig) => {
 };
 
 const apiWithRateLimit = rateLimit(api, {
-  maxRequests: 2,
+  maxRequests: 3,
   perMilliseconds: 1000,
 });
 export const getCarouselAnime = async (ids, callback, retryAttempt = 0) => {
   const backoffDelay = 60 * 1000;
   const fetchPromises = ids.map(async (id) => {
-    // await new Promise((resolve) => setTimeout(resolve, index * 500)); // Delay 500ms each
+    // await new Promise((resolve) => setTimeout(resolve, index * 500));
     try {
       const response = await apiWithRateLimit.get(
         `https://api.jikan.moe/v4/anime/${id}`
