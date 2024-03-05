@@ -30,7 +30,9 @@ const DetailAnime = () => {
     setLoading(true);
     getEpisodeAnime(mal_id, (data) => {
       setEpisode(data);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 700);
     });
   }, [mal_id]);
 
