@@ -1,9 +1,8 @@
-import LogoAndLink from "../Elements/Links & Logo";
-import SearchBar from "../Elements/Search";
 import CustomIcon from "../Elements/CustomIcon/Icon";
 import NavbarLayout from "../Layouts/NavbarLayout";
 import { useState } from "react";
 import DropdownMenu from "./DropdownMenu";
+import Logo from "../Elements/Links & Logo/Logo/Logo";
 
 const Navbar = () => {
   const linksData = [
@@ -44,31 +43,25 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
-  const handleSearch = () => {
-    alert("Feature not available");
-  };
   return (
     <>
       <NavbarLayout>
+        <img
+          className="w-6 h-6 rounded-full md:h-8 md:w-8 xl:hidden"
+          src="/user-2.webp"
+          alt=""
+        />
+
+        <Logo src="/logo.webp" />
+
         <CustomIcon
-          classname="inline-block w-7 h-7 md:h-8 md:w-8 xl:hidden"
+          classname="inline-block w-7 h-7 md:h-8 md:w-8"
           icon={`${
             isMenuOpen
               ? "M6 18 18 6M6 6l12 12" //close menu icon
-              : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" //normal menu icon
+              : "M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" //normal menu icon
           }`}
           onclick={handleMenuToggle}
-        />
-        <LogoAndLink
-          src="/logo.webp"
-          linksData={linksData}
-          classname="group-hover:text-[#ece48b]"
-        />
-        <SearchBar type="text" placeholder="Search..." classname="w-80" />
-        <CustomIcon
-          classname="inline-block w-6 h-6 md:h-7 md:w-7 xl:hidden"
-          icon="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-          onclick={handleSearch}
         />
       </NavbarLayout>
       {isMenuOpen && (

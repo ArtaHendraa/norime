@@ -81,3 +81,21 @@ export const getEpisodeAnime = async (mal_id, callback) => {
     console.error(error);
   }
 };
+
+export const getAnimeBySearch = async (mal_id, callback) => {
+  try {
+    const response = await axios.get(` `);
+    callback(response.data.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// const getAnimeBySearch = async (query) => {
+//   try {
+//     const response = await axios.get(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=10`);
+//     SetAnimeList(response.data.results);
+//   } catch (error) {
+//     console.error('Error fetching anime:', error);
+//   }
+// };
