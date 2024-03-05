@@ -91,7 +91,7 @@ const HomePage = () => {
         <MainLayout>
           <Carousel />
 
-          <ContentLayout title="new release">
+          <ContentLayout title="ongoing anime">
             <ContentCard anime={anime} banner="hidden" />
           </ContentLayout>
           <Pagination
