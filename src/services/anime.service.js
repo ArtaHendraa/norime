@@ -60,24 +60,24 @@ export const getCarouselAnime = async (ids, callback, retryAttempt = 0) => {
   }
 };
 
-export const getDetailAnime = (mal_id, callback) => {
-  axios
-    .get(`https://api.jikan.moe/v4/anime/${mal_id}`)
-    .then((res) => {
-      callback(res.data.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+export const getDetailAnime = async (mal_id, callback) => {
+  try {
+    const response = await axios.get(
+      `https://api.jikan.moe/v4/anime/${mal_id}`
+    );
+    callback(response.data.data);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-export const getEpisodeAnime = (mal_id, callback) => {
-  axios
-    .get(`https://api.jikan.moe/v4/anime/${mal_id}/episodes`)
-    .then((res) => {
-      callback(res.data.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+export const getEpisodeAnime = async (mal_id, callback) => {
+  try {
+    const response = await axios.get(
+      `https://api.jikan.moe/v4/anime/${mal_id}/episodes`
+    );
+    callback(response.data.data);
+  } catch (error) {
+    console.error(error);
+  }
 };
