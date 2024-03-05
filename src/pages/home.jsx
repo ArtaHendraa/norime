@@ -8,7 +8,6 @@ import Loading from "../components/Elements/Loading/loading.jsx";
 import Pagination from "../components/Elements/Pagination/Pagination.jsx";
 import Footer from "../components/Fragments/Footer.jsx";
 import Carousel from "../components/Fragments/Carousel.jsx";
-import Hading from "../components/Elements/Hading/Hading.jsx";
 
 const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -91,11 +90,8 @@ const HomePage = () => {
       ) : (
         <MainLayout>
           <Carousel />
-          <Hading classname="px-4 mt-4 text-2xl font-semibold capitalize text-neutral-200">
-            <span className="inline-block w-1 h-5 mr-2 rounded-md bg-neutral-200"></span>
-            new release
-          </Hading>
-          <ContentLayout titleStyle="hidden">
+
+          <ContentLayout title="new release">
             <ContentCard anime={anime} banner="hidden" />
           </ContentLayout>
           <Pagination

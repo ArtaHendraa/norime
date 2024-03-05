@@ -149,7 +149,7 @@ const Synopsis = (props) => {
   return (
     <>
       <Hading>synopsis</Hading>
-      <p className="text-neutral-400">
+      <p className="text-neutral-400 md:hidden">
         {detail.synopsis &&
           (showFullText ? detail.synopsis : detail.synopsis.slice(0, 200))}
         {!showFullText && detail.synopsis && detail.synopsis.length > 200 ? (
@@ -158,8 +158,9 @@ const Synopsis = (props) => {
           ""
         )}
       </p>
+      <p className="hidden text-neutral-400 md:block">{detail.synopsis}</p>
       {detail.synopsis.length > 200 && (
-        <Button classname="text-[#ece48b] my-1" onClick={toggleText}>
+        <Button classname="text-[#ece48b] my-1 md:hidden" onClick={toggleText}>
           {showFullText ? "Read Less" : "Read More"}
         </Button>
       )}

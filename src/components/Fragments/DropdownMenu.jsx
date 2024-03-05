@@ -13,11 +13,11 @@ const DropdownMenu = (props) => {
 
   return (
     <div
-      className={`xl:hidden fixed z-40 w-full bg-[rgba(15,15,15,.9)] text-white backdrop-blur-sm top-0 pt-[3.75rem] transition-all ease-in-out ${
+      className={`fixed z-40 w-full bg-[rgba(15,15,15,.9)] text-neutral-200 backdrop-blur-sm top-0 pt-[3.75rem] transition ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
       }`}
     >
-      <div className="py-3">
+      <div className="py-3 mx-auto xl:w-4/5">
         <Link
           linksData={linksData}
           onclick={closeMenu}
