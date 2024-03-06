@@ -34,10 +34,17 @@ const HomePage = () => {
         setTotalPages(cachedData.totalPages);
       } else {
         const { data, totalPages } = await getAnime(page, apiConfig);
-        setAnime(data || []);
+
+        // Sort the data by the 'rank' property
+        const sortedData = data.sort((a, b) => a.rank - b.rank);
+
+        setAnime(sortedData || []);
         setTotalPages(totalPages || 0);
 
-        setCachedPages((prev) => ({ ...prev, [page]: { data, totalPages } }));
+        setCachedPages((prev) => ({
+          ...prev,
+          [page]: { data: sortedData, totalPages },
+        }));
       }
     } catch (error) {
       if (error.response && error.response.status === 429) {
