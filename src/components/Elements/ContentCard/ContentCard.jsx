@@ -9,10 +9,10 @@ const ContentCard = (props) => {
         <a
           href={`anime/${anime.mal_id}`}
           key={index + 1}
-          className="group w-[99%]"
+          className="w-full group"
         >
           <div className="relative w-full h-auto mx-auto overflow-hidden rounded-lg">
-            <div className="absolute z-10 flex items-center justify-center w-full h-full duration-300 bg-black opacity-0 group-hover:opacity-60 hover:scale-150">
+            <div className="absolute z-10 flex items-center justify-center w-full h-full duration-300 bg-black opacity-0 group-hover:opacity-60 group-hover:scale-150">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
