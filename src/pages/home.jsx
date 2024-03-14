@@ -64,7 +64,6 @@ const HomePage = () => {
     }
   };
 
-
   const loadNextPage = () => {
     loadPage(currentPage + 1);
   };
