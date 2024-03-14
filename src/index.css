@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .carousel-shadow-xl {
+    box-shadow: inset 800px 0px 90px 50px #141518;
+  }
+
+  .carousel-shadow-md {
+    box-shadow: inset 0px -150px 50px 0px #0a0909;
+  }
+
+  .carousel-shadow-sm {
+    box-shadow: inset 0px -90px 50px 0px #0a0909;
+  }
+
+  :root {
+    --swiper-pagination-color: #ece48b;
+    /* --swiper-pagination-bullet-size: 8px; */
+    --swiper-pagination-bullet-width: 10px;
+    --swiper-pagination-bullet-height: 5px;
+    --swiper-pagination-bullet-border-radius: 5px;
+    --swiper-pagination-bullet-inactive-color: #fff;
+    --swiper-pagination-bullet-inactive-opacity: 0.2;
+    --swiper-pagination-bullet-opacity: 1;
+    --swiper-pagination-bullet-horizontal-gap: 3px;
+    --swiper-pagination-bullet-vertical-gap: 0px;
+    --swiper-pagination-bottom: -3px;
+  }
+}
