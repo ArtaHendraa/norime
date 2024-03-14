@@ -4,7 +4,7 @@ import Input from "./Input";
 const SearchBar = (props) => {
   const { type, placeholder, classname } = props;
   return (
-    <div className="relative hidden rounded-md xl:flex">
+    <div className="relative flex rounded-md">
       <Input type={type} placeholder={placeholder} classname={classname} />
       <svg
         xmlns="http://www.w3.org/2000/svg"

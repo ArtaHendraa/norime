@@ -9,6 +9,7 @@ import SeriesPage from "./pages/series.jsx";
 import MoviePage from "./pages/movie.jsx";
 import DetailAnime from "./pages/detailAnime.jsx";
 import ErrorPage from "./pages/error.jsx";
+import SearchPage from "./pages/search.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       </div>
     ),
   },
+  {
+    path: "/search",
+    element: <SearchPage />,
+  },
+
   {
     path: "/anime/:mal_id",
     element: <DetailAnime />,
