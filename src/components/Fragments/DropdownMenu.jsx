@@ -13,7 +13,7 @@ const DropdownMenu = (props) => {
 
   return (
     <div
-      className={`absolute z-10 w-full bg-[rgba(15,15,15,.9)] text-neutral-200 backdrop-blur-sm top-0 pt-[3.75rem] transition ${
+      className={`absolute z-40 w-full bg-[rgba(15,15,15,.9)] text-neutral-200 backdrop-blur-sm top-0 pt-[3.75rem] transition ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
       }`}
     >
