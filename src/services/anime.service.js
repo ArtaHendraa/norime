@@ -85,7 +85,7 @@ export const getCarouselAnime = async (ids, callback, retryAttempt = 0) => {
 export const getDetailAnime = async (mal_id, callback) => {
   try {
     const response = await axios.get(
-      `https://api.jikan.moe/v4/anime/${mal_id}`
+      `https://api.jikan.moe/v4/anime/${mal_id}/full`
     );
     callback(response.data.data);
   } catch (error) {

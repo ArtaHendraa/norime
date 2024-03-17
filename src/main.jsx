@@ -45,23 +45,23 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/anime/:mal_id",
+    path: "/anime/:mal_id/:title",
     element: <DetailAnime />,
   },
   {
-    path: "series/anime/:mal_id",
+    path: "series/anime/:mal_id/:title",
     element: <DetailAnime />,
   },
   {
-    path: "movie/anime/:mal_id",
+    path: "movie/anime/:mal_id/:title",
     element: <DetailAnime />,
   },
   {
-    path: "popular/anime/:mal_id",
+    path: "popular/anime/:mal_id/:title",
     element: <DetailAnime />,
   },
   {
-    path: "bookmark/anime/:mal_id",
+    path: "bookmark/anime/:mal_id/:title",
     element: <DetailAnime />,
   },
 ]);
