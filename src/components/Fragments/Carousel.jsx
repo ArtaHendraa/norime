@@ -46,7 +46,11 @@ const Carousel = () => {
           {carousel.map((carouselItem, index) => (
             <SwiperSlide key={index + 1}>
               <section>
-                <a href={`anime/${carouselItem.mal_id}`}>
+                <a
+                  href={`anime/${
+                    carouselItem.mal_id
+                  }/${carouselItem.title.replace(/ /g, "_")}`}
+                >
                   <main className="flex justify-between items-end bg-[#141518] relative">
                     <div className="absolute w-full h-full xl:flex xl:items-end carousel-shadow-sm md:carousel-shadow-md xl:carousel-shadow-xl">
                       <img
