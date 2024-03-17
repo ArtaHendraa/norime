@@ -7,19 +7,19 @@ const ContentCard = (props) => {
     <>
       {anime.map((anime, index) => (
         <a
-          href={`anime/${anime.mal_id}`}
+          href={`anime/${anime.mal_id}/${anime.title.replace(/ /g, "_")}`}
           key={index + 1}
           className="w-full group"
         >
           <div className="relative w-full h-auto mx-auto overflow-hidden rounded-lg">
-            <div className="absolute z-10 flex items-center justify-center w-full h-full duration-300 bg-black opacity-0 group-hover:opacity-60 group-hover:scale-150">
+            <div className="absolute z-10 flex items-center justify-center w-full h-full duration-300 bg-black opacity-0 group-hover:opacity-60">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-1/4 h-auto"
+                className="w-1/4 h-auto duration-300 group-hover:scale-150"
               >
                 <path
                   strokeLinecap="round"
