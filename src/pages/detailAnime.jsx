@@ -52,7 +52,6 @@ const DetailAnime = () => {
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
                   src={`${detail.trailer.embed_url}?autoplay=0&showinfo=0`}
-                  // src={`https://www.youtube.com/embed/${detail.trailer.youtube_id}?enablejsapi=1&wmode=opaque&autoplay=0&showinfo=0`}
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
