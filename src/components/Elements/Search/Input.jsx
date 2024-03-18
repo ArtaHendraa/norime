@@ -5,7 +5,7 @@ const Input = (props) => {
     <input
       type={type}
       placeholder={placeholder}
-      className={`bg-[rgba(255,255,255,.1)] py-2 px-5 ${classname} rounded-md focus:outline-none`}
+      className={`bg-[rgba(255,255,255,.1)] py-2 px-5 ${classname} focus:outline-none rounded-l-md`}
     />
   );
 };
