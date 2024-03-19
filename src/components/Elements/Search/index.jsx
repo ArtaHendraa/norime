@@ -5,7 +5,7 @@ import Input from "./Input";
 const SearchBar = (props) => {
   const { type, placeholder, classname, onClick } = props;
   return (
-    <div className="relative flex items-center py-3">
+    <div className="relative flex items-center px-3 py-3">
       <Input type={type} placeholder={placeholder} classname={classname} />
       <Button
         classname="right-0 h-10 px-5 bg-[#ece48b] top-1/2 rounded-r-md"
