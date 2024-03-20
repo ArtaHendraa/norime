@@ -3,10 +3,15 @@ import Button from "../Button/Button";
 import Input from "./Input";
 
 const SearchBar = (props) => {
-  const { type, placeholder, classname, onClick } = props;
+  const { type, placeholder, classname, onClick, setSearch } = props;
   return (
-    <div className="relative flex items-center px-3 py-3">
-      <Input type={type} placeholder={placeholder} classname={classname} />
+    <form className="relative flex items-center px-3 py-3">
+      <Input
+        type={type}
+        placeholder={placeholder}
+        classname={classname}
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <Button
         classname="right-0 h-10 px-5 bg-[#ece48b] top-1/2 rounded-r-md"
         onClick={onClick}
@@ -26,7 +31,7 @@ const SearchBar = (props) => {
           />
         </svg>
       </Button>
-    </div>
+    </form>
   );
 };
 
