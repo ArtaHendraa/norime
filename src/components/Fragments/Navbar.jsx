@@ -48,7 +48,7 @@ const Navbar = () => {
       <NavbarLayout>
         <a href="/search" className="inline-block xl:hidden">
           <CustomIcon
-            classname="w-6 h-6 md:h-7 md:w-7"
+            classname="w-7 h-7 md:h-8 md:w-8"
             icon="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
           />
         </a>
@@ -57,7 +57,7 @@ const Navbar = () => {
         <div className="flex items-center gap-x-5">
           <a href="/search" className="hidden xl:inline-block">
             <CustomIcon
-              classname="w-6 h-6 md:h-7 md:w-7"
+              classname="w-7 h-7 md:h-8 md:w-8"
               icon="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
             />
           </a>
