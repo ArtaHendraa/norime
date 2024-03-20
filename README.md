@@ -32,7 +32,7 @@ Before you begin, make sure you have Node.js and npm (Node Package Manager) inst
 
 2. Navigate to the project directory:
    ```bash
-   cd norime.site
+   cd norime
    ```
 3. Install the dependencies:
    ```bash
