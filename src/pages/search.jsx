@@ -26,7 +26,6 @@ const SearchPage = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     FetchAnime(search);
-    console.log(search);
   };
 
   const FetchAnime = async (query) => {
@@ -34,7 +33,6 @@ const SearchPage = () => {
     const temp = await fetch(
       `https://api.jikan.moe/v4/anime?q=${query}&order_by=popularity&sort=asc&sfw=true`
     ).then((res) => res.json());
-    console.log(temp.data);
     setAnimeSearch(temp.data);
     setLoading(false);
   };
@@ -54,7 +52,8 @@ const SearchPage = () => {
           />
           <ColContentCard searchAnime={animeSearch} />
 
-          <section className="flex flex-wrap justify-start gap-3 px-4 mt-3">
+          <h1 className="mt-3 text-2xl font-semibold text-center">Genre</h1>
+          <section className="flex flex-wrap justify-start gap-3 px-4 mt-2">
             {genresAnime.map((genre) => (
               <a key={genre.mal_id} href={genre.url}>
                 <Banner classname="bg-neutral-700">{genre.name}</Banner>
