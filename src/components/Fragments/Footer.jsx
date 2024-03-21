@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import Copyright from "../Elements/Copyright/Copyright";
 
-const Footer = () => {
+const Footer = ({ classname }) => {
   return (
     <>
-      <footer className="pb-5">
+      <footer className={`pb-5 ${classname}`}>
         <div className="flex items-center justify-between px-2 mx-8 capitalize border-b gap-x-2 border-neutral-500 mt-14">
           <div className="w-20 mb-2 md:w-24">
             <img src="/logo.webp" alt="" />

@@ -81,9 +81,9 @@ export const getEpisodeAnime = async (mal_id, callback) => {
   }
 };
 
-export const getAnimeBySearch = async (callback) => {
+export const getAnimeGenres = async (callback) => {
   try {
-    const response = await axios.get(`https://api.jikan.moe/v4/top/anime`);
+    const response = await axios.get(`https://api.jikan.moe/v4/genres/anime`);
     callback(response.data.data);
   } catch (error) {
     console.error(error);
