@@ -10,6 +10,7 @@ import MoviePage from "./pages/movie.jsx";
 import DetailAnime from "./pages/detailAnime.jsx";
 import ErrorPage from "./pages/error.jsx";
 import SearchPage from "./pages/search.jsx";
+import GenrePage from "./pages/genre.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,10 @@ const router = createBrowserRouter([
     path: "/search",
     element: <SearchPage />,
   },
-
+  {
+    path: "/genre/:mal_id/:name",
+    element: <GenrePage />,
+  },
   {
     path: "/anime/:mal_id/:title",
     element: <DetailAnime />,

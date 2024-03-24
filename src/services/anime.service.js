@@ -81,12 +81,34 @@ export const getEpisodeAnime = async (mal_id, callback) => {
   }
 };
 
-export const getAnimeGenres = async (callback) => {
+export const getAnimeGenresList = async (callback) => {
   try {
     const response = await axios.get(`https://api.jikan.moe/v4/genres/anime`);
     callback(response.data.data);
   } catch (error) {
     console.error(error);
+  }
+};
+
+export const getAnimeGenre = async (page, apiConfig, mal_id) => {
+  const { baseURL, limit } = apiConfig;
+  const itemsPerPage = limit || 24;
+  try {
+    const response = await axios.get(
+      `${baseURL}${mal_id}&limit=${itemsPerPage}&page=${page}`
+    );
+    const data = response.data;
+    if (!data || !data.data || !data.pagination || !data.pagination.items) {
+      throw new Error("Invalid API response format");
+    }
+    const totalItems = data.pagination.items.total;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    return {
+      data: data.data || [],
+      totalPages: totalPages || 0,
+    };
+  } catch (error) {
+    throw error;
   }
 };
 

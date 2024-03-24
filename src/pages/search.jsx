@@ -1,7 +1,7 @@
 import MainLayout from "../components/Layouts/MainLayout";
 import SearchBar from "../components/Elements/Search/index";
 import Loading from "../components/Elements/Loading/loading";
-import { getAnimeGenres } from "../services/anime.service";
+import { getAnimeGenresList } from "../services/anime.service";
 import { useEffect, useState } from "react";
 import Footer from "../components/Fragments/Footer";
 import ColContentCard from "../components/Elements/ContentCard/ColContentCard";
@@ -15,7 +15,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    getAnimeGenres((data) => {
+    getAnimeGenresList((data) => {
       setGenresAnime(data);
       setTimeout(() => {
         setLoading(false);
@@ -55,7 +55,10 @@ const SearchPage = () => {
           <h1 className="mt-3 text-2xl font-semibold text-center">Genre</h1>
           <section className="flex flex-wrap justify-start gap-3 px-4 mt-2">
             {genresAnime.map((genre) => (
-              <a key={genre.mal_id} href={genre.url}>
+              <a
+                key={genre.mal_id}
+                href={`genre/${genre.mal_id}/${genre.name.replace(/ /g, "_")}`}
+              >
                 <Banner classname="bg-neutral-700">{genre.name}</Banner>
               </a>
             ))}
