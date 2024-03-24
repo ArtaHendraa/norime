@@ -55,10 +55,7 @@ const SearchPage = () => {
           <h1 className="mt-3 text-2xl font-semibold text-center">Genre</h1>
           <section className="flex flex-wrap justify-start gap-3 px-4 mt-2">
             {genresAnime.map((genre) => (
-              <a
-                key={genre.mal_id}
-                href={`genre/${genre.mal_id}/${genre.name.replace(/ /g, "_")}`}
-              >
+              <a key={genre.mal_id} href={`${genre.mal_id}`}>
                 <Banner classname="bg-neutral-700">{genre.name}</Banner>
               </a>
             ))}

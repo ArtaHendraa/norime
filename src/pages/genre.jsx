@@ -18,7 +18,7 @@ const GenrePage = () => {
   const [cachedPages, setCachedPages] = useState({});
 
   const apiConfig = {
-    baseURL: `https://api.jikan.moe/v4/anime?genres=${mal_id}`,
+    baseURL: `https://api.jikan.moe/v4/anime?genres=${mal_id}&order_by=popularity`,
     limit: 24,
   };
 
@@ -91,7 +91,7 @@ const GenrePage = () => {
       ) : (
         <MainLayout>
           <ContentLayout title={name}>
-            <ContentCard anime={anime} banner="hidden" />
+            <ContentCard anime={anime} banner="block" />
           </ContentLayout>
           <Pagination
             calculateDisplayedPages={calculateDisplayedPages}

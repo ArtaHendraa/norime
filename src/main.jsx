@@ -45,29 +45,29 @@ const router = createBrowserRouter([
     element: <SearchPage />,
   },
   {
-    path: "/genre/:mal_id/:name",
+    path: "/:mal_id",
     element: <GenrePage />,
   },
   {
     path: "/anime/:mal_id/:title",
     element: <DetailAnime />,
   },
-  {
-    path: "series/anime/:mal_id/:title",
-    element: <DetailAnime />,
-  },
-  {
-    path: "movie/anime/:mal_id/:title",
-    element: <DetailAnime />,
-  },
-  {
-    path: "popular/anime/:mal_id/:title",
-    element: <DetailAnime />,
-  },
-  {
-    path: "bookmark/anime/:mal_id/:title",
-    element: <DetailAnime />,
-  },
+  // {
+  //   path: "series/anime/:mal_id/:title",
+  //   element: <DetailAnime />,
+  // },
+  // {
+  //   path: "movie/anime/:mal_id/:title",
+  //   element: <DetailAnime />,
+  // },
+  // {
+  //   path: "popular/anime/:mal_id/:title",
+  //   element: <DetailAnime />,
+  // },
+  // {
+  //   path: "bookmark/anime/:mal_id/:title",
+  //   element: <DetailAnime />,
+  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
