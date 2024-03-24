@@ -7,7 +7,7 @@ const ContentCard = (props) => {
     <>
       {anime.map((anime, index) => (
         <a
-          href={`anime/${anime.mal_id}/${anime.title.replace(/ /g, "_")}`}
+          href={`/anime/${anime.mal_id}/${anime.title.replace(/ /g, "_")}`}
           key={index + 1}
           className="w-full group"
         >
