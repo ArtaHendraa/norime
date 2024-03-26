@@ -1,7 +1,6 @@
 /* eslint-disable no-useless-catch */
 import axios from "axios";
 import rateLimit from "axios-rate-limit";
-
 const api = axios.create();
 
 export const getAnime = async (page, apiConfig) => {
@@ -111,12 +110,3 @@ export const getAnimeGenre = async (page, apiConfig, mal_id) => {
     throw error;
   }
 };
-
-// const getAnimeBySearch = async (query) => {
-//   try {
-//     const response = await axios.get(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=10`);
-//     SetAnimeList(response.data.results);
-//   } catch (error) {
-//     console.error('Error fetching anime:', error);
-//   }
-// };

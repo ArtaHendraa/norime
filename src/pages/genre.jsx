@@ -91,7 +91,7 @@ const GenrePage = () => {
       ) : (
         <MainLayout>
           <ContentLayout title={name}>
-            <ContentCard anime={anime} banner="block" />
+            <ContentCard anime={anime} banner="hidden" />
           </ContentLayout>
           <Pagination
             calculateDisplayedPages={calculateDisplayedPages}
