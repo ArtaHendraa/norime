@@ -3,7 +3,7 @@
 import Hading from "../Elements/Hading/Hading";
 
 const ContentLayout = (props) => {
-  const { children, title } = props;
+  const { children, title, className = "grid-cols-3" } = props;
   return (
     <>
       <Hading classname="flex items-center px-4 py-3 text-2xl font-semibold capitalize text-neutral-200">
@@ -11,7 +11,9 @@ const ContentLayout = (props) => {
         {title}
       </Hading>
       <main className="flex flex-col items-center justify-center px-4">
-        <div className="grid grid-cols-3 gap-5 md:grid-cols-4 xl:grid-cols-6 place-items-center place-content-center">
+        <div
+          className={`grid gap-5 md:grid-cols-4 xl:grid-cols-6 place-items-center place-content-center ${className}`}
+        >
           {children}
         </div>
       </main>

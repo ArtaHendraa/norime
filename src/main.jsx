@@ -11,6 +11,7 @@ import DetailAnime from "./pages/detailAnime.jsx";
 import ErrorPage from "./pages/error.jsx";
 import SearchPage from "./pages/search.jsx";
 import GenrePage from "./pages/genre.jsx";
+import MangaPage from "./pages/manga.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+  },
+  {
+    path: "/manga",
+    element: <MangaPage />,
   },
   {
     path: "/series",
