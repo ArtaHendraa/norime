@@ -3,6 +3,7 @@ import NavbarLayout from "../Layouts/NavbarLayout";
 import { useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 import Logo from "../Elements/Links & Logo/Logo/Logo";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const linksData = [
@@ -51,21 +52,21 @@ const Navbar = () => {
   return (
     <>
       <NavbarLayout>
-        <a href="/search" className="inline-block xl:hidden">
+        <Link to="/search" className="inline-block xl:hidden">
           <CustomIcon
             classname="w-7 h-7 md:h-8 md:w-8"
             icon="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
           />
-        </a>
+        </Link>
 
         <Logo src="/logo.webp" />
         <div className="flex items-center gap-x-5">
-          <a href="/search" className="hidden xl:inline-block">
+          <Link to="/search" className="hidden xl:inline-block">
             <CustomIcon
               classname="w-7 h-7 md:h-8 md:w-8"
               icon="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
             />
-          </a>
+          </Link>
 
           <CustomIcon
             classname="inline-block cursor-pointer w-7 h-7 md:h-8 md:w-8"

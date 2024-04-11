@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getManga } from "../services/anime.service";
 import Loading from "../components/Elements/Loading/loading";
 import ContentLayout from "../components/Layouts/ContentLayout";
+import { Link } from "react-router-dom";
 
 const MangaPage = () => {
   const [manga, setManga] = useState({});
@@ -26,8 +27,8 @@ const MangaPage = () => {
         <>
           <ContentLayout title="new update" className="grid-cols-1">
             {manga.map((manga, index) => (
-              <a
-                href={`/manga/${manga.title.replace(/ /g, "-")}`}
+              <Link
+                to={`/manga/${manga.title.replace(/ /g, "-")}`}
                 key={index + 1}
                 className="w-full group"
               >
@@ -68,7 +69,7 @@ const MangaPage = () => {
                     {manga.aired.prop.from.year}
                   </p> */}
                 </div>
-              </a>
+              </Link>
             ))}
           </ContentLayout>
         </>
