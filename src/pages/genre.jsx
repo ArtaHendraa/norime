@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { getAnime } from "../services/anime.service.js";
 import MainLayout from "../components/Layouts/MainLayout.jsx";
@@ -24,6 +23,7 @@ const GenrePage = () => {
 
   useEffect(() => {
     fetchData(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchData = async (page, retryAttempt = 0) => {

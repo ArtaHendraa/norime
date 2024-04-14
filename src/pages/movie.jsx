@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { getAnime } from "../services/anime.service.js";
 import MainLayout from "../components/Layouts/MainLayout.jsx";
 import ContentLayout from "../components/Layouts/ContentLayout.jsx";
@@ -22,6 +21,7 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchData(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchData = async (page, retryAttempt = 0) => {
