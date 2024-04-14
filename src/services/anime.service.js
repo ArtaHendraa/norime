@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-catch */
 import axios from "axios";
 import rateLimit from "axios-rate-limit";
 const api = axios.create();
@@ -26,7 +25,10 @@ export const getAnime = async (page, apiConfig) => {
       totalPages: totalPages || 0,
     };
   } catch (error) {
+    console.log(error);
     throw error;
+  } finally {
+    console.log("success");
   }
 };
 
@@ -92,7 +94,10 @@ export const getAnimeGenre = async (page, apiConfig, mal_id) => {
       totalPages: totalPages || 0,
     };
   } catch (error) {
+    console.log(error);
     throw error;
+  } finally {
+    console.log("success");
   }
 };
 
