@@ -6,7 +6,7 @@ const apiWithRateLimit = rateLimit(api, {
   maxRequests: 1,
   perMilliseconds: 1000,
 });
-
+// test
 export const getAnime = async (page, apiConfig) => {
   const { baseURL, limit } = apiConfig;
   const itemsPerPage = limit || 24;
