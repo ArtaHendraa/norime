@@ -100,14 +100,3 @@ export const getAnimeGenre = async (page, apiConfig, mal_id) => {
     console.log("success");
   }
 };
-
-export const getManga = async (callback) => {
-  try {
-    const response = await apiWithRateLimit.get(
-      `https://animev1.bimabizz.my.id/api/komiku`
-    );
-    callback(response.data.data);
-  } catch (error) {
-    console.error(error);
-  }
-};
