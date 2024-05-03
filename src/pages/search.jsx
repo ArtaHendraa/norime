@@ -19,7 +19,7 @@ const SearchPage = () => {
       setGenresAnime(data);
       setTimeout(() => {
         setLoading(false);
-      }, 500);
+      }, 600);
     });
   }, []);
 

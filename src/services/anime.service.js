@@ -6,7 +6,7 @@ const apiWithRateLimit = rateLimit(api, {
   maxRequests: 1,
   perMilliseconds: 1000,
 });
-// test
+
 export const getAnime = async (page, apiConfig) => {
   const { baseURL, limit } = apiConfig;
   const itemsPerPage = limit || 24;
@@ -98,16 +98,5 @@ export const getAnimeGenre = async (page, apiConfig, mal_id) => {
     throw error;
   } finally {
     console.log("success");
-  }
-};
-
-export const getManga = async (callback) => {
-  try {
-    const response = await apiWithRateLimit.get(
-      `https://animev1.bimabizz.my.id/api/komiku`
-    );
-    callback(response.data.data);
-  } catch (error) {
-    console.error(error);
   }
 };
