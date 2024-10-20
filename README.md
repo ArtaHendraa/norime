@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Hii, my name is arta this is one of my project, this is a website that provides all anime information with latest information
+Hiii, my name is arta this is one of my project, this is a website that provides all anime information with latest information
 
 ## Features
 
